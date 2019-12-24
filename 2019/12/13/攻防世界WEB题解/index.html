@@ -75,6 +75,7 @@
 
       
       <a id="more"></a>
+
 <h1 id="攻防世界"><a href="#攻防世界" class="headerlink" title="攻防世界"></a>攻防世界</h1><h3 id="Cat"><a href="#Cat" class="headerlink" title="Cat"></a>Cat</h3><p>按照他的要求输入了loli.club(萝莉俱乐部？？)，什么都没有发生。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/nUoE8GAu2go2QHJpvwmmoSMa.qyDh5LY.ybHNPYOMPA!/b/dMUAAAAAAAAA&bo=SQVgAQAAAAADBw8!&rf=viewer_4" alt=""><br>因为题目名字为Cat，所以输入了Cat试试<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/h*a0bRwoh7JmCjR2pT3lCJu0lAtBBxvPNfCfAp10H*k!/b/dL8AAAAAAAAA&bo=hwSsAQAAAAADBww!&rf=viewer_4" alt=""><br>居然出现了报错，从报错来看出现了ping，联想到CTF中常出现的ping的命令执行，于是测试了一下他过滤了哪些截断符。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  ;  |  - (  )  &#96;  ||  &amp;&amp;  &amp;  &#123;  &#125;  %0a(这个可以代替空格)</span><br></pre></td></tr></table></figure>
 <p>发现他把这些都进行的过滤，但是发现在输入<code>;</code>时，url中的分号被url编码了，通过在url中输入%80出现报错（因为url编码使用的是16进制，80也就是128，ASCII码是从0-127，所以这个时候会报错。）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BbBlhC.Mr9HuWDZD.cNjgbITHBgC89EtgOnTh1Z4LXE!/b/dE0BAAAAAAAA&bo=SwV9AgAAAAADBxM!&rf=viewer_4" alt=""><br>通过报错信息我们发现了<code>/opt/api/dnsapi/views.py</code>而根据<code>php cur</code>，我们可以通过<code>@</code>进行文件传送，而这里因为超出了界限，所以会类似于%80将报错信息输出到网页中。构造url<code>http://111.198.29.45:57650/index.php?url=@/opt/api/dnsapi/views.py</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Z5ghxMd2DlyaqqEyjGk8dfdZ1D1lRMMuvrnUUheY*is!/b/dAgBAAAAAAAA&bo=VgVaAgAAAAADJwk!&rf=viewer_4" alt=""><br>发现database这个敏感词，访问目录得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Kv04JMxAnY0gR5HyO6ME2Sj.1wNTv4bvgDtpTbi.4hY!/b/dL4AAAAAAAAA&bo=VgUcAgAAAAADJ08!&rf=viewer_4" alt=""></p>
@@ -185,6 +186,20 @@
 
   
   
+  <nav class="article-nav">
+    
+      <a href="/2019/12/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80%E6%8A%8A%E6%A2%AD/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据结构一把梭
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
 
   
 
