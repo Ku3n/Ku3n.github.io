@@ -3,8 +3,10 @@
 
 <head>
   <meta charset="utf-8" />
-    
-  <meta name="description" content="人间值得" />
+   
+  <meta name="keywords" content="安全" />
+   
+  <meta name="description" content="世中逢尔，雨中逢花" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
@@ -74,8 +76,8 @@
       
 
       
-      <a id="more"></a>
-
+      <p>see more?</p>
+<a id="more"></a>
 <h1 id="攻防世界"><a href="#攻防世界" class="headerlink" title="攻防世界"></a>攻防世界</h1><h3 id="Cat"><a href="#Cat" class="headerlink" title="Cat"></a>Cat</h3><p>按照他的要求输入了loli.club(萝莉俱乐部？？)，什么都没有发生。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/nUoE8GAu2go2QHJpvwmmoSMa.qyDh5LY.ybHNPYOMPA!/b/dMUAAAAAAAAA&bo=SQVgAQAAAAADBw8!&rf=viewer_4" alt=""><br>因为题目名字为Cat，所以输入了Cat试试<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/h*a0bRwoh7JmCjR2pT3lCJu0lAtBBxvPNfCfAp10H*k!/b/dL8AAAAAAAAA&bo=hwSsAQAAAAADBww!&rf=viewer_4" alt=""><br>居然出现了报错，从报错来看出现了ping，联想到CTF中常出现的ping的命令执行，于是测试了一下他过滤了哪些截断符。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  ;  |  - (  )  &#96;  ||  &amp;&amp;  &amp;  &#123;  &#125;  %0a(这个可以代替空格)</span><br></pre></td></tr></table></figure>
 <p>发现他把这些都进行的过滤，但是发现在输入<code>;</code>时，url中的分号被url编码了，通过在url中输入%80出现报错（因为url编码使用的是16进制，80也就是128，ASCII码是从0-127，所以这个时候会报错。）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BbBlhC.Mr9HuWDZD.cNjgbITHBgC89EtgOnTh1Z4LXE!/b/dE0BAAAAAAAA&bo=SwV9AgAAAAADBxM!&rf=viewer_4" alt=""><br>通过报错信息我们发现了<code>/opt/api/dnsapi/views.py</code>而根据<code>php cur</code>，我们可以通过<code>@</code>进行文件传送，而这里因为超出了界限，所以会类似于%80将报错信息输出到网页中。构造url<code>http://111.198.29.45:57650/index.php?url=@/opt/api/dnsapi/views.py</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Z5ghxMd2DlyaqqEyjGk8dfdZ1D1lRMMuvrnUUheY*is!/b/dAgBAAAAAAAA&bo=VgVaAgAAAAADJwk!&rf=viewer_4" alt=""><br>发现database这个敏感词，访问目录得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Kv04JMxAnY0gR5HyO6ME2Sj.1wNTv4bvgDtpTbi.4hY!/b/dL4AAAAAAAAA&bo=VgUcAgAAAAADJ08!&rf=viewer_4" alt=""></p>
@@ -143,36 +145,8 @@
       
       <!-- 打赏 -->
       
-        <div class="page-reward">
-          <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
-            <div class="tooltip tooltip-east">
-              <span class="tooltip-item">
-                赏
-              </span>
-              <span class="tooltip-content">
-                <span class="tooltip-text">
-                  <span class="tooltip-inner">
-                    <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡吧~<i
-                        class="icon icon-quo-right"></i></p>
-                    <div class="reward-box">
-                      
-                      <div class="reward-box-item">
-                        <img class="reward-img" src="/images/alipay.jpg">
-                        <span class="reward-type">支付宝</span>
-                      </div>
-                      
-                      
-                      <div class="reward-box-item">
-                        <img class="reward-img" src="/images/wechat.jpg">
-                        <span class="reward-type">微信</span>
-                      </div>
-                      
-                    </div>
-                  </span>
-                </span>
-              </span>
-            </div>
-          </a>
+        <div id="reward-btn">
+          打赏
         </div>
         
     </div>
@@ -211,14 +185,14 @@
     </div>
 </div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine@1.3.10/dist/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
 <script>
     new Valine({
         el: '#vcomments',
         notify: false,
         verify: false,
-        app_id: 'chaSYi8FMdJBwzIBpxeNjqWC-gzGzoHsz',
-        app_key: 'PqqkLYgPkHvH1BmyQqySWnSK',
+        app_id: '',
+        app_key: '',
         path: window.location.pathname,
         avatar: 'mp',
         placeholder: '给我的文章加点评论吧~',
@@ -268,7 +242,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019
+        2015-2019
         Li XiangLan
       </li>
       <li>
@@ -329,11 +303,11 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">安全</a>
+      <a class="nav-item-link" href="/tags/LoneRanger/">LR</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">生活</a>
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
     </li>
     
     <li class="nav-item">
@@ -365,6 +339,27 @@
 </div>
 </div>
       </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
       
 <script src="/js/jquery-2.0.3.min.js"></script>
 
@@ -404,7 +399,7 @@
 
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: false
   }
 </script>
 
@@ -412,27 +407,14 @@
 <script src="/js/ayer.js"></script>
 
 
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
 
 
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
   </div>
 </body>
 
